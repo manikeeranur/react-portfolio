@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI";
+  line-height: 25px;
+  font-size: 14px;
+}
+.container-resume {
+  width: 1024px;
+  padding: 0;
+  margin: 0 auto;
+}
+.profile {
+  width: 150px;
+  height: 150px;
+  background-color: #dde2eb;
+  background-image: url(../../Images/Profile/resume-image.jpeg);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: 0px -45px;
+  background-size: cover;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 5px 0;
+}
+.header-right {
+  width: 83%;
+  padding: 10px 0 0;
+}
+.name {
+  font-size: 30px;
+  font-weight: bold;
+}
+.address1 {
+  font-size: 20px;
+  color: #767676;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.address2 {
+  margin-top: 5px;
+  font-weight: bold;
+}
+.address3 {
+  margin-top: 3px;
+}
+.experience-details {
+  display: flex;
+}
+.title {
+  margin: 20px 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #69599c;
+  font-size: 25px;
+}
+.project-title {
+  margin: 10px 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #69599c;
+  font-size: 15px;
+}
+.Role {
+  font-weight: bold;
+  font-size: 20px;
+}
+.companyName {
+  font-size: 15px;
+  color: #424242;
+  font-weight: 600;
+}
+.contactdetails p {
+  display: flex;
+  align-items: center;
+}
+
+.contant {
+  text-align: justify;
+  line-height: 30px;
+}
+.education_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 0 10px 0;
+}
+.bold {
+  font-weight: bold;
+}
+.institute {
+  font-size: 13px;
+  margin: 0px 0px 0px;
+}
+.skills_box {
+  display: flex;
+  margin: 10px 0px 0px;
+}
+.skills_box p {
+  margin: 0;
+}
+.skills_box p:nth-child(1) {
+  width: 5%;
+}
+.skills_box p:nth-child(2) {
+  width: 30%;
+  font-weight: bold;
+}
+.skills_box p:nth-child(3) {
+  width: 5%;
+}
+.skills_box p:nth-child(4) {
+  width: 55%;
+}
+.d-flex {
+  display: flex;
+  align-items: flex-start;
+}
+.d-flex p:first-child {
+  width: 5%;
+  line-height: 30px;
+}
+.d-flex p:nth-child(2) {
+  width: 95%;
+  line-height: 30px;
+}
+.PROJECT_DESCRIPTION p {
+  text-align: justify;
+}
+.sign {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-end;
+  margin-top: 15px;
+}
+.contactdetails {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f1f1f1;
+  font-size: 17px;
+  padding: 5px;
+  margin: 10px 0;
+}
+.contactdetails i {
+  color: #69599c;
+  font-size: 20px;
+  margin-right: 5px;
+}
+.hide {
+  display: none;
+}
+.container-resume .row {
+  display: flex;
+  justify-content: space-between;
+}
+.left,
+.right {
+  width: 47%;
+}
+
+.Declaration {
+  margin: 15px 0 0;
+}

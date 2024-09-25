@@ -1,0 +1,125 @@
+* {
+  font-family: "Segoe UI";
+  line-height: 25px;
+}
+
+:root {
+  --blue: #0a192f;
+  --lightslategray: #8892b0;
+  --lavender: #ccd6f6;
+  --aquamarine: #62fbd6;
+  --slategray: #717c98;
+  --smallfonts: "Redressed";
+}
+body {
+  background: var(--blue);
+}
+
+.my-resume {
+  background: #fff;
+}
+
+.home-page {
+  width: 100%;
+  height: calc(100vh - 66px);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.home-page p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  text-align: justify;
+  color: var(--slategray);
+}
+
+.home-page .myJob {
+  font-size: 6vw;
+  word-spacing: 10px;
+  font-weight: bold;
+  margin: 1rem 0;
+  color: var(--lavender);
+}
+.home-page .role {
+  font-size: 6vw;
+  word-spacing: 10px;
+  font-weight: bold;
+  margin: 1rem 0;
+  color: var(--lightslategray);
+}
+
+.contactdetails > div {
+  display: flex;
+  align-items: center;
+}
+
+.heading-top {
+  font-weight: bold;
+  margin: 16px 0;
+  font-size: 2rem;
+  color: var(--lavender);
+}
+
+.skills {
+  margin-bottom: 50px;
+}
+
+.skills .skills-box {
+  background: #f9f5fd;
+  color: var(--lavender);
+}
+.skills .text-center {
+  color: var(--lightslategray);
+}
+
+.education .education-degree {
+  color: var(--blue);
+}
+
+.education .education-year {
+  color: var(--blue);
+}
+.education-card {
+  background: #fff;
+  min-height: 100px;
+  padding: 1rem;
+  border-radius: 4px;
+  border-top: 5px solid #ef8451;
+}
+.experience .experience-details {
+  color: var(--lavender);
+}
+
+.experience .companyName {
+  color: var(--lavender);
+}
+
+.experience .experience-details .role {
+  color: var(--lavender);
+  font-size: 2rem;
+}
+
+.experience .experience-details .company-name {
+  color: var(--lightslategray);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.experience .experience-details .institute {
+  color: var(--slategray);
+  font-size: 16px;
+}
+.contact-form {
+  padding-top: 2rem;
+}
+.contact-form .MuiButtonBase-root {
+  outline: none !important;
+  border: none;
+  color: #fff;
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .education .MuiTimelineItem-root::before {
+    display: none;
+  }
+}

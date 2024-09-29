@@ -1,11 +1,12 @@
-import { Button, IconButton } from "@mui/material";
+import { Button } from "@mui/material";
 import React, { useState } from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
-import Profile from "../../Images/Profile/manikandan.png";
+import Profile from "../../Images/Profile/profile.jpeg";
+import profileMenu from "../../Images/storyset/profile-menu.png";
 
 const Contact = () => {
   const [socialMedia, setSocialMedia] = useState([
@@ -26,20 +27,71 @@ const Contact = () => {
       link: "https://www.linkedin.com/in/manikandan-arumugam-577899203/",
     },
   ]);
-  return (
-    <div className="contact-form">
-      <div className="container">
-        <div className="col-12 col-md-4">
-          <div className="d-flex gap-5 flex-column align-items-center">
-            <img src={Profile} alt="" />
 
-            <div className="d-flex  gap-3">
-              {socialMedia.map((data) => (
-                <Button size="large" href={data.link} target="_blank">
-                  {data.icon}{" "}
-                </Button>
-              ))}
+  const [contactDetails, setContactDetails] = useState([
+    {
+      title: "Name",
+      value: "Manikandan A",
+    },
+
+    {
+      title: "Email",
+      value: "manikeeranur2105@gmail.com",
+    },
+    {
+      title: "Mobile",
+      value: "+91 7402272187",
+    },
+    {
+      title: "Degree",
+      value: "Master of Computer Applications",
+    },
+    {
+      title: "D.O.B",
+      value: "6th Oct,1998",
+    },
+
+    {
+      title: "State",
+      value: "Tamilnadu",
+    },
+    {
+      title: "District",
+      value: "Pudukkottai",
+    },
+    {
+      title: "Address",
+      value: "16, Kallar Street, Keeranur",
+    },
+  ]);
+  return (
+    <div className="container">
+      <div className="contact-form">
+        <div className="d-flex flex-wrap align-items-center h-100">
+          <div className="col-12 col-md-4">
+            <div className="d-flex gap-5 flex-column align-items-center">
+              <img src={Profile} alt="" className="rounded-circle col-6" />
+              <div className="d-flex  gap-3">
+                {socialMedia.map((data) => (
+                  <Button
+                    size="large"
+                    className="bg-light text-dark"
+                    href={data.link}
+                    target="_blank"
+                  >
+                    {data.icon}{" "}
+                  </Button>
+                ))}
+              </div>
             </div>
+          </div>
+          <div className="col-12 col-md-8 details m-auto">
+            {contactDetails.map((detail) => (
+              <div className="detail">
+                <div>{detail.title}</div>
+                <div>{detail.value}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

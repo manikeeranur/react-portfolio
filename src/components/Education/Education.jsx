@@ -1,12 +1,8 @@
 import React, { useContext } from "react";
 import { MyResumeContext } from "../context/MyResumeContext";
 import { useMediaQuery } from "@mui/material";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineDot from "@mui/lab/TimelineDot";
+import education8 from "../../Images/storyset/education8.png";
+import education2 from "../../Images/storyset/education2.png";
 
 const Education = () => {
   const { educationDetails } = useContext(MyResumeContext);
@@ -16,34 +12,45 @@ const Education = () => {
     <div className="education">
       <div className="container">
         <div className="heading-top">Education</div>
+        <div className="education-system">
+          <div className="col-12 col-lg-4">
+            <img src={education8} alt="" className="img-fluid" />
+          </div>
+          <div className="col-12 col-md-8 ps-md-5">
+            {educationDetails.slice(0, 2).map((education, index) => (
+              <div className="education-card">
+                <div className="education-degree">
+                  <span className="fw-bold">{education.degree}</span>
+                  <span className="percentage">{education.percentage}</span>
+                </div>
+                <div className="text-secondary college">
+                  {education.institute}
+                </div>
 
-        <div className="col-12 col-lg-9">
-          <Timeline position={isMobile ? "right" : "alternate"}>
-            {educationDetails.map((education, index) => (
-              <TimelineItem key={index}>
-                <TimelineSeparator>
-                  <TimelineDot variant="filled" />
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent>
-                  <div className={`education-card education-card${index + 1}`}>
-                    <div className="education-degree">
-                      <span className="fw-bold">{education.degree}</span>
-                      <span className="ms-2">{education.percentage}</span>
-                    </div>
-                    <small className="text-secondary">
-                      {education.institute}
-                    </small>
-                    <div>
-                      <small className="education-year fw-bold">
-                        {education.year}
-                      </small>
-                    </div>
-                  </div>
-                </TimelineContent>
-              </TimelineItem>
+                <div className="education-year fw-bold">{education.year}</div>
+              </div>
             ))}
-          </Timeline>
+          </div>
+        </div>
+        <div className="education-system">
+          <div className="col-12 col-md-8">
+            {educationDetails.slice(2, 4).map((education, index) => (
+              <div className="education-card">
+                <div className="education-degree">
+                  <span className="fw-bold">{education.degree}</span>
+                  <span className="percentage">{education.percentage}</span>
+                </div>
+                <div className="text-secondary college">
+                  {education.institute}
+                </div>
+
+                <div className="education-year fw-bold">{education.year}</div>
+              </div>
+            ))}
+          </div>
+          <div className="col-12 col-lg-4">
+            <img src={education2} alt="" className="img-fluid" />
+          </div>
         </div>
       </div>
     </div>

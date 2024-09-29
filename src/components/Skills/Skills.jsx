@@ -9,7 +9,40 @@ import mui from "../../Images/Skills/materialui.png";
 import bootstrap from "../../Images/Skills/bootstrap.png";
 import github from "../../Images/Skills/github.png";
 import vscode from "../../Images/Skills/vscode.png";
+import { motion } from "framer-motion";
+
 const Skills = () => {
+  const cardVariants1 = {
+    offscreen: {
+      y: -1500,
+    },
+    onscreen: {
+      y: 0,
+      transition: {
+        y: {
+          duration: 1,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        },
+      },
+    },
+  };
+  const cardVariants2 = {
+    offscreen: {
+      y: 1500,
+    },
+    onscreen: {
+      y: 0,
+      transition: {
+        y: {
+          duration: 1,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        },
+      },
+    },
+  };
+
   const [skills, setSkills] = useState([
     {
       image: html,
@@ -56,20 +89,56 @@ const Skills = () => {
   ]);
 
   return (
-    <div className="skills">
+    <div className="skills overflow-hidden">
       <div className="container">
         <div className="heading-top">Skills</div>
 
-        <div className="row m-0 gap-md-4">
-          {skills.map((skill) => (
-            <div className="col-6 col-md-2 p-0">
-              <div className="skills-box rounded m-2">
-                <img src={skill.image} alt="HTML LOGO" className="img-fluid" />
-              </div>
-              <div className="fw-bold text-center">{skill.text}</div>
+        <motion.div
+          transition={{ duration: 1 }}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true }}
+        >
+          <motion.div variants={cardVariants1}>
+            <div className="row justify-content-center m-0 gap-md-4 mb-md-5">
+              {skills.slice(0, 5).map((skill) => (
+                <div className="col-6 col-md-2 p-0">
+                  <div className="skills-box rounded m-2">
+                    <img
+                      src={skill.image}
+                      alt="HTML LOGO"
+                      className="img-fluid"
+                    />
+                  </div>
+                  <div className="fw-bold text-center">{skill.text}</div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </motion.div>
+        </motion.div>
+        <motion.div
+          transition={{ duration: 1 }}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true }}
+        >
+          <motion.div variants={cardVariants2}>
+            <div className="row justify-content-center m-0 gap-md-4">
+              {skills.slice(5, 10).map((skill) => (
+                <div className="col-6 col-md-2 p-0">
+                  <div className="skills-box rounded m-2">
+                    <img
+                      src={skill.image}
+                      alt="HTML LOGO"
+                      className="img-fluid"
+                    />
+                  </div>
+                  <div className="fw-bold text-center">{skill.text}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import React from "react";
 import Resume from "../download/Manikandan_Resume.pdf";
-import Profile from "../../Images/Profile/manikandan.png";
 
 const Home = () => {
   return (
@@ -18,10 +17,6 @@ const Home = () => {
           >
             Get My Resume
           </a>
-        </div>
-
-        <div className="col-12 col-md-2 text-center">
-          <img src={Profile} alt="" />
         </div>
       </div>
     </div>

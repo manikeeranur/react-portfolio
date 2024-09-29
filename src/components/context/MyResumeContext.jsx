@@ -95,7 +95,7 @@ const MyResumeContextProvider = ({ children }) => {
     },
     {
       degree: "Bachelor of Computer Applications",
-      institute: "H.H.The Rajah’s college(Autonomous),Pudukkottai",
+      institute: "H.H.The Rajah’s college(Autonomous), Pudukkottai",
       year: "2016 -2019",
       percentage: "66.57%",
     },

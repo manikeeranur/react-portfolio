@@ -165,3 +165,13 @@
 .Declaration {
   margin: 15px 0 0;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .container-resume {
+    background: #fff;
+    width: 100%;
+    padding: 200px 16px;
+    min-height: 100vh;
+    zoom: 0.4;
+  }
+}

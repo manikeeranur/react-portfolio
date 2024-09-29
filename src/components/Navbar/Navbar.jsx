@@ -1,11 +1,11 @@
 import React from "react";
-import Profile from "../../Images/Profile/manikandan.png";
+import Profile from "../../Images/Profile/profile.jpeg";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+      <nav className="navbar navbar-expand-md navbar-dark sticky-top">
         <div className="container">
           <a className="navbar-brand" href="#">
             <img src={Profile} alt="" width={40} className="rounded-circle" />

@@ -18,7 +18,9 @@ body {
 .my-resume {
   background: #fff;
 }
-
+.navbar {
+  background: var(--blue);
+}
 .home-page {
   width: 100%;
   height: calc(100vh - 66px);
@@ -73,20 +75,46 @@ body {
 .skills .text-center {
   color: var(--lightslategray);
 }
+.education-system {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 85vh;
+}
+.education .education-card {
+  margin: 3rem 0;
+}
+.education .education-degree span {
+  color: var(--lavender);
+  font-size: 24px;
+}
+.education .education-degree .percentage {
+  color: var(--lavender);
+  font-size: 20px;
+  margin-left: 1rem;
+}
 
-.education .education-degree {
-  color: var(--blue);
+.education .college {
+  font-size: 20px;
+  margin: 8px 0 4px;
 }
 
 .education .education-year {
-  color: var(--blue);
+  color: var(--lightslategray);
+  font-size: 14px;
 }
-.education-card {
-  background: #fff;
-  min-height: 100px;
-  padding: 1rem;
-  border-radius: 4px;
-  border-top: 5px solid #ef8451;
+
+.experience-system {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 70vh;
+  border: 1px solid var(--lightslategray);
+  border-radius: 8px;
+  margin: 50px 0;
+}
+.experience-system2 {
+  flex-direction: row-reverse;
 }
 .experience .experience-details {
   color: var(--lavender);
@@ -112,12 +140,25 @@ body {
 }
 .contact-form {
   padding-top: 2rem;
+  height: calc(100vh - 100px);
 }
-.contact-form .MuiButtonBase-root {
+.MuiButtonBase-root {
   outline: none !important;
   border: none;
   color: #fff;
 }
+.contact-form .detail div:first-child {
+  width: 120px;
+  font-weight: bold;
+  color: var(--lavender);
+}
+.contact-form .detail {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  color: var(--lightslategray);
+}
+
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .education .MuiTimelineItem-root::before {
     display: none;

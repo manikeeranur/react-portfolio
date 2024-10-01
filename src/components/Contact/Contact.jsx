@@ -4,9 +4,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import EmailIcon from "@mui/icons-material/Email";
 import Profile from "../../Images/Profile/profile.jpeg";
-import profileMenu from "../../Images/storyset/profile-menu.png";
 
 const Contact = () => {
   const [socialMedia, setSocialMedia] = useState([

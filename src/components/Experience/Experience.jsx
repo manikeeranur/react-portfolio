@@ -1,19 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { MyResumeContext } from "../context/MyResumeContext";
 import programmer1 from "../../Images/storyset/programmer1.png";
-import programmer2 from "../../Images/storyset/programmer7.png";
-import programmer3 from "../../Images/storyset/programmer2.png";
+import programmer2 from "../../Images/storyset/programmer2.png";
+import programmer3 from "../../Images/storyset/programmer3.png";
 import { motion } from "framer-motion";
 const Experience = () => {
   const { ExperienceDetails } = useContext(MyResumeContext);
-  const [expanded, setExpanded] = useState({});
 
-  const toggleViewMore = (index) => {
-    setExpanded((prevExpanded) => ({
-      ...prevExpanded,
-      [index]: !prevExpanded[index],
-    }));
-  };
   const cardVariants1 = {
     offscreen: {
       x: 1000,
@@ -78,34 +71,6 @@ const Experience = () => {
                             {exp.project} {exp.client}
                           </div>
                         </div>
-                        {exp.projectDescription ? (
-                          <div className="d-none">
-                            <div
-                              className="view-more-toggle my-2"
-                              onClick={() => toggleViewMore(index)}
-                              style={{
-                                cursor: "pointer",
-                                color: "blue",
-                              }}
-                            ></div>
-                            {exp.projectDescription.map((desc, descIndex) => (
-                              <div
-                                className="experience-details mt-2"
-                                key={descIndex}
-                              >
-                                <p className="mb-0">
-                                  <i
-                                    className="fa fa-caret-right hidden"
-                                    aria-hidden="true"
-                                  ></i>
-                                </p>
-                                <div className="mb-0 col col-md-9 ms-3 ">
-                                  {desc}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        ) : null}
                       </>
                     ) : null}
                   </div>

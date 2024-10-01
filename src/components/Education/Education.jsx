@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import { MyResumeContext } from "../context/MyResumeContext";
-import { useMediaQuery } from "@mui/material";
-import education8 from "../../Images/storyset/education8.png";
+import education1 from "../../Images/storyset/education1.png";
 import education2 from "../../Images/storyset/education2.png";
 
 const Education = () => {
   const { educationDetails } = useContext(MyResumeContext);
-  const isMobile = useMediaQuery("(max-width:600px)");
 
   return (
     <div className="education">
@@ -14,7 +12,7 @@ const Education = () => {
         <div className="heading-top">Education</div>
         <div className="education-system">
           <div className="col-12 col-lg-4">
-            <img src={education8} alt="" className="img-fluid" />
+            <img src={education1} alt="" className="img-fluid" />
           </div>
           <div className="col-12 col-md-8 ps-md-5">
             {educationDetails.slice(0, 2).map((education, index) => (

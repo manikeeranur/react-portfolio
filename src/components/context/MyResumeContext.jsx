@@ -24,7 +24,7 @@ const MyResumeContextProvider = ({ children }) => {
   ];
 
   const gitHubLinks = [
-    "https://manikeeranur.github.io/Portfolio/",
+    "https://manikandan-portfolio-ruby.vercel.app/",
     "https://manikeeranur.github.io/Reactproject1/",
   ];
 

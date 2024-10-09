@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
@@ -62,6 +63,28 @@ const Contact = () => {
       value: "16, Kallar Street, Keeranur",
     },
   ]);
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_ce31qr7", "template_cf7qdo9", form.current, {
+        publicKey: "3JMxe97whwmmH8TI-",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+
+    e.target.reset();
+  };
+
   return (
     <div className="container">
       <div className="contact-form">
@@ -83,13 +106,53 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-md-8 details m-auto">
+
+          <div className="col-12 col-md-4 details m-auto ">
             {contactDetails.map((detail) => (
               <div className="detail">
                 <div>{detail.title}</div>
                 <div>{detail.value}</div>
               </div>
             ))}
+          </div>
+
+          <div className="col-12 col-md-4 py-5 py-md-0">
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="form-group mb-3">
+                <label className="form-label text-white">Name</label>
+                <input
+                  type="text"
+                  name="from_name"
+                  className="form-control"
+                  placeholder="Enter Your Name"
+                  required
+                />
+              </div>
+              <div className="form-group mb-3">
+                <label className="form-label text-white">Email</label>
+                <input
+                  type="email"
+                  name="from_email"
+                  className="form-control"
+                  placeholder="Enter Your Email"
+                  required
+                />
+              </div>
+              <div className="form-group mb-3">
+                <label className="form-label text-white">Message</label>
+                <textarea
+                  name="message"
+                  className="form-control"
+                  placeholder="Enter Your Message"
+                  rows={5}
+                  required
+                />
+              </div>
+
+              <button type="submit" className="btn btn-sm btn-light mb-3">
+                Send
+              </button>
+            </form>
           </div>
         </div>
       </div>

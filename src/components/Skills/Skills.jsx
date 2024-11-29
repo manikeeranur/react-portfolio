@@ -1,17 +1,9 @@
 import React, { useState } from "react";
-import html from "../../Images/Skills/html.png";
-import css from "../../Images/Skills/css.png";
-import javascript from "../../Images/Skills/javascript.png";
-import jquery from "../../Images/Skills/jquery.png";
-import reactjs from "../../Images/Skills/reactjs.png";
-import nextjs from "../../Images/Skills/nextjs.png";
-import mui from "../../Images/Skills/materialui.png";
-import bootstrap from "../../Images/Skills/bootstrap.png";
-import github from "../../Images/Skills/github.png";
-import vscode from "../../Images/Skills/vscode.png";
 import { motion } from "framer-motion";
 
 const Skills = () => {
+  const skillsBaseURL =
+    "https://res.cloudinary.com/duuesjzan/image/upload/q_auto:low/v1732870679/skills/";
   const cardVariants1 = {
     offscreen: {
       y: -1500,
@@ -45,45 +37,45 @@ const Skills = () => {
 
   const [skills, setSkills] = useState([
     {
-      image: html,
+      image: "html",
       text: "HTML",
     },
     {
-      image: css,
+      image: "css",
       text: "CSS",
     },
     {
-      image: bootstrap,
+      image: "bootstrap",
       text: "Bootstrap",
     },
     {
-      image: mui,
+      image: "materialui",
       text: "MUI",
     },
     {
-      image: javascript,
+      image: "javascript",
       text: "JavaScript",
     },
     {
-      image: jquery,
+      image: "jquery",
       text: "jQuery",
     },
     {
-      image: reactjs,
+      image: "reactjs",
       text: "React Js",
     },
     {
-      image: nextjs,
+      image: "nextjs",
       text: "Next Js",
     },
 
     {
-      image: github,
+      image: "github",
       text: "GitHub",
     },
 
     {
-      image: vscode,
+      image: "vscode",
       text: "VsCode",
     },
   ]);
@@ -105,8 +97,8 @@ const Skills = () => {
                 <div className="col-6 col-md-2 p-0">
                   <div className="skills-box rounded m-2">
                     <img
-                      src={skill.image}
-                      alt="HTML LOGO"
+                      src={`${skillsBaseURL}${skill.image}`}
+                      alt="skills"
                       className="img-fluid"
                     />
                   </div>
@@ -128,7 +120,7 @@ const Skills = () => {
                 <div className="col-6 col-md-2 p-0">
                   <div className="skills-box rounded m-2">
                     <img
-                      src={skill.image}
+                      src={`${skillsBaseURL}${skill.image}`}
                       alt="HTML LOGO"
                       className="img-fluid"
                     />

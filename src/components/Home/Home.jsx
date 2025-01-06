@@ -11,11 +11,12 @@ const Home = () => {
           <h2 className="role">Front End Developer.</h2>
           <p>I'm a Front End Developer based in React & Next JS.</p>
           <a
-            className="btn btn-outline-secondary btn-sm mt-3"
+            className="btn btn-outline-secondary download-button-new btn-sm mt-3"
             href={Resume}
             download="Manikandan_Resume.pdf"
           >
             Get My Resume
+            <i className="fa fa-download ms-3" aria-hidden="true"></i>
           </a>
         </div>
       </div>

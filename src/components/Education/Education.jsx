@@ -9,12 +9,12 @@ const Education = () => {
   return (
     <div className="education">
       <div className="container">
-        <div className="heading-top">Education</div>
-        <div className="education-system">
-          <div className="col-12 col-lg-4">
-            <img src={education1} alt="" className="img-fluid" />
-          </div>
-          <div className="col-12 col-md-8 ps-md-5">
+        <div className="heading-top">
+          Education{" "}
+          <em className="fa fa-graduation-cap ms-3" aria-hidden="true"></em>
+        </div>
+        <div className="flex-wrap d-flex justify-content-between gap-4">
+          <div className="education-system col-md-5 col-12">
             {educationDetails.slice(0, 2).map((education, index) => (
               <div className="education-card">
                 <div className="education-degree">
@@ -24,14 +24,12 @@ const Education = () => {
                 <div className="text-secondary college">
                   {education.institute}
                 </div>
-
                 <div className="education-year fw-bold">{education.year}</div>
               </div>
             ))}
           </div>
-        </div>
-        <div className="education-system">
-          <div className="col-12 col-md-8">
+
+          <div className="education-system col-md-5 col-12">
             {educationDetails.slice(2, 4).map((education, index) => (
               <div className="education-card">
                 <div className="education-degree">
@@ -41,13 +39,9 @@ const Education = () => {
                 <div className="text-secondary college">
                   {education.institute}
                 </div>
-
                 <div className="education-year fw-bold">{education.year}</div>
               </div>
             ))}
-          </div>
-          <div className="col-12 col-lg-4">
-            <img src={education2} alt="" className="img-fluid" />
           </div>
         </div>
       </div>

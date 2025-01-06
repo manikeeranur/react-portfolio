@@ -14,17 +14,17 @@ const MyResumeContextProvider = ({ children }) => {
       details: "(+91) 74022 72187",
     },
     {
-      icon: "fa-github",
-      details: "https://github.com/manikeeranur",
+      icon: "fa-globe",
+      details: "https://www.manikandan.pro",
     },
     {
-      icon: "fa-map-marker",
-      details: "Chennai",
+      icon: "fa-github",
+      details: "https://github.com/manikeeranur",
     },
   ];
 
   const gitHubLinks = [
-    "https://manikandan-portfolio-ruby.vercel.app/",
+    "https://github.com/manikeeranur",
     "https://manikeeranur.github.io/Reactproject1/",
   ];
 

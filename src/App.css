@@ -59,7 +59,7 @@ body {
 
 .heading-top {
   font-weight: bold;
-  margin: 16px 0;
+  margin: 2rem 0 3rem;
   font-size: 2rem;
   color: var(--lavender);
 }
@@ -68,9 +68,25 @@ body {
   margin-bottom: 50px;
 }
 
-.skills .skills-box {
-  background: #f9f5fd;
+.skills-group {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+}
+
+.skill-heading {
   color: var(--lavender);
+  font-size: 16px;
+  margin: 2rem 0 1rem;
+}
+
+.skills .skills-box {
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  padding: 14px;
+  background: #3d4c634a;
+  border: 0.5px solid #e0e0e014;
 }
 .skills .text-center {
   color: var(--lightslategray);
@@ -78,25 +94,22 @@ body {
 .education-system {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  min-height: 85vh;
+  gap: 1.5rem;
 }
-.education .education-card {
-  margin: 3rem 0;
-}
+
 .education .education-degree span {
   color: var(--lavender);
-  font-size: 24px;
+  font-size: 18px;
 }
 .education .education-degree .percentage {
   color: var(--lavender);
-  font-size: 20px;
+  font-size: 18px;
   margin-left: 1rem;
 }
 
 .education .college {
-  font-size: 20px;
-  margin: 8px 0 4px;
+  font-size: 16px;
+  margin: 4px 0;
 }
 
 .education .education-year {
@@ -118,6 +131,10 @@ body {
 }
 .experience .experience-details {
   color: var(--lavender);
+  background: #3d4c634a;
+  border: 0.5px solid #e0e0e014;
+  padding: 1rem;
+  border-radius: 4px;
 }
 
 .experience .companyName {
@@ -126,12 +143,12 @@ body {
 
 .experience .experience-details .role {
   color: var(--lavender);
-  font-size: 2rem;
+  font-size: 18px;
 }
 
 .experience .experience-details .company-name {
   color: var(--lightslategray);
-  font-size: 1.5rem;
+  font-size: 18px;
   font-weight: bold;
 }
 .experience .experience-details .institute {
@@ -139,8 +156,20 @@ body {
   font-size: 16px;
 }
 .contact-form {
-  padding-top: 2rem;
-  height: calc(100vh - 100px);
+  margin-bottom: 3rem;
+}
+.contact-form .form-control {
+  background: #3d4c634a;
+  border: 0.5px solid #e0e0e014;
+  color: var(--lightslategray);
+}
+.contact-form .form-label {
+  color: var(--lavender);
+}
+.contact-form .btn-send {
+  background-color: var(--lavender);
+  color: var(--blue);
+  font-weight: bold;
 }
 .MuiButtonBase-root {
   outline: none !important;
@@ -148,19 +177,40 @@ body {
   color: #fff;
 }
 .contact-form .detail div:first-child {
-  width: 120px;
   font-weight: bold;
   color: var(--lavender);
 }
+
 .contact-form .detail {
-  display: flex;
-  align-items: center;
   margin: 1rem 0;
   color: var(--lightslategray);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-
+.contact-form .detail .fa {
+  width: 50px;
+  height: 50px;
+  background: var(--lightslategray);
+  color: var(--blue);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.download-button-new {
+  background: var(--lavender);
+  font-weight: bold;
+  color: var(--blue);
+  padding: 0.5rem;
+}
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .education .MuiTimelineItem-root::before {
     display: none;
+  }
+  .skills-group {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 }

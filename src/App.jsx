@@ -12,7 +12,7 @@ import Contact from "./components/Contact/Contact";
 const App = () => {
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <MyResumeContextProvider>
           <Navbar />
 
@@ -35,6 +35,30 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
           </Routes>
 
+          <Routes>
+            <Route path="/myresume" element={<MyResume />} />
+          </Routes>
+        </MyResumeContextProvider>
+      </BrowserRouter> */}
+
+      <BrowserRouter>
+        <MyResumeContextProvider>
+          <Navbar />
+
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Home />
+                  <Education />
+                  <Experience />
+                  <Skills />
+                  <Contact />
+                </>
+              }
+            />
+          </Routes>
           <Routes>
             <Route path="/myresume" element={<MyResume />} />
           </Routes>

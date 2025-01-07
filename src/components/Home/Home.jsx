@@ -3,7 +3,7 @@ import Resume from "../download/Manikandan_Resume.pdf";
 
 const Home = () => {
   return (
-    <div className="container">
+    <div className="container" id="home">
       <div className="home-page pt-md-5">
         <div className="col-md">
           <p>Hi, I'm</p>

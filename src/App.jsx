@@ -9,38 +9,11 @@ import MyResumeContextProvider from "./components/context/MyResumeContext";
 import Education from "./components/Education/Education";
 import Experience from "./components/Experience/Experience";
 import Contact from "./components/Contact/Contact";
+import FileUploader from "./components/FileUploader";
+import Youtube from "./components/Youtube/Youtube";
 const App = () => {
   return (
     <>
-      {/* <BrowserRouter>
-        <MyResumeContextProvider>
-          <Navbar />
-
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-
-          <Routes>
-            <Route path="/education" element={<Education />} />
-          </Routes>
-
-          <Routes>
-            <Route path="/experience" element={<Experience />} />
-          </Routes>
-
-          <Routes>
-            <Route path="/skills" element={<Skills />} />
-          </Routes>
-          <Routes>
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-
-          <Routes>
-            <Route path="/myresume" element={<MyResume />} />
-          </Routes>
-        </MyResumeContextProvider>
-      </BrowserRouter> */}
-
       <BrowserRouter>
         <MyResumeContextProvider>
           <Navbar />
@@ -55,12 +28,16 @@ const App = () => {
                   <Experience />
                   <Skills />
                   <Contact />
+                  <Youtube />
                 </>
               }
             />
           </Routes>
           <Routes>
             <Route path="/myresume" element={<MyResume />} />
+          </Routes>
+          <Routes>
+            <Route path="/fileUploader" element={<FileUploader />} />
           </Routes>
         </MyResumeContextProvider>
       </BrowserRouter>

@@ -18,9 +18,23 @@ body {
 .my-resume {
   background: #fff;
 }
+
+#education,
+#experience,
+#skills,
+#contact,
+#youtube {
+  margin-top: 100px;
+}
+
 .navbar {
   background: var(--blue);
 }
+
+.navbar .nav-link {
+  cursor: pointer;
+}
+
 .home-page {
   width: 100%;
   height: calc(100vh - 66px);
@@ -157,6 +171,7 @@ body {
 }
 .contact-form {
   margin-bottom: 3rem;
+  /* height: 73vh; */
 }
 .contact-form .form-control {
   background: #3d4c634a;
@@ -204,6 +219,25 @@ body {
   font-weight: bold;
   color: var(--blue);
   padding: 0.5rem;
+}
+.youtube {
+  min-height: 100vh;
+}
+.youtube .video-wrapper {
+  position: relative;
+  width: 100%; /* Adjust width based on your layout */
+  max-width: 560px; /* Optional: Limit max width */
+  aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+}
+
+.youtube .video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 0;
+  filter: opacity(0.5);
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .education .MuiTimelineItem-root::before {

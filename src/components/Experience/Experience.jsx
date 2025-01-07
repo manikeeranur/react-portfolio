@@ -82,7 +82,7 @@ const Experience = () => {
 
   return (
     <>
-      <div className="experience pt-3">
+      <div className="experience pt-3" id="experience">
         <div className="container overflow-hidden">
           <div className="heading-top">Experience</div>
           {/* <motion.div

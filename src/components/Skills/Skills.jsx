@@ -135,7 +135,7 @@ const Skills = () => {
   };
 
   return (
-    <div className="overflow-hidden skills">
+    <div className="overflow-hidden skills" id="skills">
       <div className="container">
         <div className="heading-top">Techs Used</div>
 

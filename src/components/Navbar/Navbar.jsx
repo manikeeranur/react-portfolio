@@ -1,6 +1,6 @@
 import React from "react";
 import Profile from "../../Images/Profile/profile.jpeg";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   return (
@@ -25,34 +25,69 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav me-auto ms-md-auto me-md-0 mt-2 mt-lg-0">
               <li className="nav-item">
-                <Link to="/" className="nav-link active" aria-current="page">
+                <Link
+                  to="home"
+                  smooth={true}
+                  duration={400}
+                  offset={-80}
+                  className="nav-link"
+                >
                   Home
-                  <span className="visually-hidden">(current)</span>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/education" className="nav-link">
+                <Link
+                  to="education"
+                  smooth={true}
+                  duration={400}
+                  offset={-80}
+                  className="nav-link"
+                >
                   Education
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/experience" className="nav-link">
+                <Link
+                  to="experience"
+                  smooth={true}
+                  duration={400}
+                  offset={-50}
+                  className="nav-link"
+                >
                   Experience
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/skills" className="nav-link">
-                  Skills
+                <Link
+                  to="skills"
+                  smooth={true}
+                  duration={400}
+                  offset={-50}
+                  className="nav-link"
+                >
+                  Techs Used
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/contact" className="nav-link">
+                <Link
+                  to="contact"
+                  smooth={true}
+                  duration={400}
+                  offset={-80}
+                  className="nav-link"
+                >
                   Contact
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/myresume" className="nav-link">
-                  My Resume
+                <Link
+                  to="youtube"
+                  smooth={true}
+                  duration={400}
+                  offset={-80}
+                  className="nav-link"
+                >
+                  Youtube Channel
                 </Link>
               </li>
             </ul>

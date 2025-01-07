@@ -82,10 +82,10 @@ Tamil Nadu - 622502
   };
 
   return (
-    <div className="container">
+    <div className="container" id="contact">
       <div className="heading-top">Contact Details</div>
       <div className="contact-form">
-        <div className="d-flex flex-wrap align-items-center gap-3 h-100">
+        <div className="d-flex flex-wrap align-items-center gap-3">
           <div className="col-12 col-md-4 d-none">
             <div className="d-flex gap-5 flex-column align-items-center">
               <img src={Profile} alt="" className="rounded-circle col-6" />

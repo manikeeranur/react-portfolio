@@ -7,7 +7,7 @@ const Education = () => {
   const { educationDetails } = useContext(MyResumeContext);
 
   return (
-    <div className="education">
+    <div className="education" id="education">
       <div className="container">
         <div className="heading-top">
           Education{" "}

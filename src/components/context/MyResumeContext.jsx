@@ -44,7 +44,7 @@ const MyResumeContextProvider = ({ children }) => {
       ],
     },
     {
-      role: "UI/UX Designer",
+      role: "Front-End Developer",
       companyName: "Leadtech Solutions Pvt Ltd - Chennai.",
       experience: (
         <WorkExperience startDate="02-Aug-2021" endDate="08-Sep-2023" />

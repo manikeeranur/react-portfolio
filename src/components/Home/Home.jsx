@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Resume from "../download/Manikandan_Resume.pdf";
+import MyResume from "../Resume/MyResume";
+import { MyResumeContext } from "../context/MyResumeContext";
 
 const Home = () => {
+  const { downloadResumeAsPDF } = useContext(MyResumeContext);
   return (
     <div className="container" id="home">
       <div className="home-page pt-md-5">
@@ -12,12 +15,16 @@ const Home = () => {
           <p>I'm a Front End Developer based in React & Next JS.</p>
           <a
             className="btn btn-outline-secondary download-button-new btn-sm mt-3"
-            href={Resume}
-            download="Manikandan_Resume.pdf"
+            // href={Resume}
+            onClick={downloadResumeAsPDF}
+            // download="Manikandan_Resume.pdf"
           >
             Get My Resume
             <i className="fa fa-download ms-3" aria-hidden="true"></i>
           </a>
+          <div className="d-none">
+            <MyResume />
+          </div>
         </div>
       </div>
     </div>

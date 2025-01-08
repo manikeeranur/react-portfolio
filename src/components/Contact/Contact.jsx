@@ -133,7 +133,7 @@ Tamil Nadu - 622502
           <div className="col-12 col-md-4 py-5 py-md-0">
             <form ref={form} onSubmit={sendEmail}>
               <div className="form-group mb-3">
-                <label className="form-label">Name</label>
+                <label className="form-label">Your Name</label>
                 <input
                   type="text"
                   name="from_name"
@@ -144,7 +144,7 @@ Tamil Nadu - 622502
                 />
               </div>
               <div className="form-group mb-3">
-                <label className="form-label">Email</label>
+                <label className="form-label">Your Email</label>
                 <input
                   type="email"
                   name="from_email"
@@ -155,7 +155,7 @@ Tamil Nadu - 622502
                 />
               </div>
               <div className="form-group mb-3">
-                <label className="form-label">Message</label>
+                <label className="form-label">Your Message</label>
                 <textarea
                   name="message"
                   className="form-control"

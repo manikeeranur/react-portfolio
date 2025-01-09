@@ -24,7 +24,7 @@ const MyResumeContextProvider = ({ children }) => {
   ];
 
   const gitHubLinks = [
-    "https://github.com/manikeeranur",
+    // "https://github.com/manikeeranur",
     "https://manikeeranur.github.io/Reactproject1/",
   ];
 
@@ -61,7 +61,7 @@ const MyResumeContextProvider = ({ children }) => {
 
     {
       role: "Intern React Developer",
-      companyName: "Hermitz Media Pvt Ltd - Banglore.",
+      companyName: "Hermitz Media Pvt Ltd - (Remote).",
       experience: "3 Months",
       technology: "React Js.",
       projectDescription: [],
@@ -71,7 +71,7 @@ const MyResumeContextProvider = ({ children }) => {
   const technicalSkills = [
     {
       title: "Language",
-      value: "HTML5, CSS3, JavaScript, JQuery",
+      value: "HTML5, CSS3, JavaScript",
     },
     {
       title: "Framework/Library",

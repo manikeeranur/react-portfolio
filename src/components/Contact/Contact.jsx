@@ -106,7 +106,7 @@ Tamil Nadu - 622502
 
           <div className="col-12 col-md">
             <div className="d-flex flex-wrap">
-              <div className="detail col-md-6">
+              <div className="detail col-md-6 col-12">
                 <img
                   src={Profile}
                   alt=""
@@ -119,11 +119,11 @@ Tamil Nadu - 622502
                 </div>
               </div>
               {contactDetails.map((detail) => (
-                <div className="detail col-md-6">
+                <div className="detail col-md-6 col-12">
                   <i className={`fa ${detail?.icon}`} aria-hidden="true"></i>
                   <div className="col">
                     <div>{detail.title}</div>
-                    <div className="col-9">{detail.value}</div>
+                    <div className="col-12 col-md-9">{detail.value}</div>
                   </div>
                 </div>
               ))}

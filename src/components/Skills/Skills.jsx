@@ -1,5 +1,5 @@
 import React from "react";
-
+import Marquee from "react-fast-marquee";
 import html from "../../Images/skills/html.svg";
 import css from "../../Images/skills/css.svg";
 import bootstrap from "../../Images/skills/bootstrap.svg";
@@ -74,7 +74,7 @@ const Skills = () => {
         {skills.slice(startIndex, endIndex).map((skill, index) => (
           <div className="skills-box col" key={index}>
             <img src={skill.image} alt="skills" width="35px" />
-            <div className="text-white ms-3">{skill.text}</div>
+            <div className="ms-3">{skill.text}</div>
           </div>
         ))}
       </div>
@@ -82,17 +82,19 @@ const Skills = () => {
   };
 
   return (
-    <div className="overflow-hidden skills" id="skills">
-      <div className="container">
-        <div className="heading-top">Techs Used</div>
-        {/* <div className="skill-heading">Development Tools</div> */}
-        <div className="skill-heading"> Frontend Technologies</div>
-        {skillsCards(0, 4)}
-        <div style={{ marginTop: "32px" }}>{skillsCards(4, 8)}</div>
-        <div className="skill-heading"> Tools & Platforms</div>
-        {skillsCards(8, 12)}
+    <>
+      <div className="overflow-hidden skills" id="skills">
+        <div className="container">
+          <div className="heading-top">Techs Used</div>
+
+          <div className="skill-heading"> Frontend Technologies</div>
+          {skillsCards(0, 4)}
+          <div className="mt-3 mt-md-4">{skillsCards(4, 8)}</div>
+          <div className="skill-heading"> Tools & Platforms</div>
+          {skillsCards(8, 12)}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,8 +1,126 @@
-import React from "react";
+// import React from "react";
+// import Profile from "../../Images/Profile/profile.jpeg";
+// import { Link } from "react-scroll";
+
+// const Navbar = () => {
+
+//   return (
+//     <>
+//       <nav className="navbar navbar-expand-md navbar-dark sticky-top">
+//         <div className="container">
+//           <a className="navbar-brand" href="#">
+//             <img src={Profile} alt="" width={40} className="rounded-circle" />
+//             <small className="ms-2">Manikandan Arumugam</small>
+//           </a>
+//           <button
+//             className="navbar-toggler d-lg-none"
+//             type="button"
+//             data-bs-toggle="collapse"
+//             data-bs-target="#collapsibleNavId"
+//             aria-controls="collapsibleNavId"
+//             aria-expanded="false"
+//             aria-label="Toggle navigation"
+//           >
+//             <span className="navbar-toggler-icon"></span>
+//           </button>
+//           <div className="collapse navbar-collapse" id="collapsibleNavId">
+//             <ul className="navbar-nav me-auto ms-md-auto me-md-0 mt-2 mt-lg-0">
+//               <li className="nav-item">
+//                 <Link
+//                   to="home"
+//                   smooth={true}
+//                   duration={400}
+//                   offset={-80}
+//                   className="nav-link"
+//                 >
+//                   Home
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link
+//                   to="education"
+//                   smooth={true}
+//                   duration={400}
+//                   offset={-80}
+//                   className="nav-link"
+//                 >
+//                   Education
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link
+//                   to="experience"
+//                   smooth={true}
+//                   duration={400}
+//                   offset={-50}
+//                   className="nav-link"
+//                 >
+//                   Experience
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link
+//                   to="skills"
+//                   smooth={true}
+//                   duration={400}
+//                   offset={-50}
+//                   className="nav-link"
+//                 >
+//                   Techs Used
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link
+//                   to="contact"
+//                   smooth={true}
+//                   duration={400}
+//                   offset={-80}
+//                   className="nav-link"
+//                 >
+//                   Contact
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link
+//                   to="youtube"
+//                   smooth={true}
+//                   duration={400}
+//                   offset={-80}
+//                   className="nav-link"
+//                 >
+//                   Youtube Channel
+//                 </Link>
+//               </li>
+//             </ul>
+//           </div>
+//         </div>
+//       </nav>
+//     </>
+//   );
+// };
+
+// export default Navbar;
+import React, { useState, useEffect } from "react";
 import Profile from "../../Images/Profile/profile.jpeg";
 import { Link } from "react-scroll";
 
 const Navbar = () => {
+  const [active, setActive] = useState("home");
+
+  // Load active section from localStorage on component mount
+  useEffect(() => {
+    const savedActive = localStorage.getItem("activeSection");
+    if (savedActive) {
+      setActive(savedActive);
+    }
+  }, []);
+
+  // Update active section on click and save to localStorage
+  const handleSetActive = (section) => {
+    setActive(section);
+    localStorage.setItem("activeSection", section);
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-md navbar-dark sticky-top">
@@ -24,72 +142,27 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav me-auto ms-md-auto me-md-0 mt-2 mt-lg-0">
-              <li className="nav-item">
-                <Link
-                  to="home"
-                  smooth={true}
-                  duration={400}
-                  offset={-80}
-                  className="nav-link"
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="education"
-                  smooth={true}
-                  duration={400}
-                  offset={-80}
-                  className="nav-link"
-                >
-                  Education
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="experience"
-                  smooth={true}
-                  duration={400}
-                  offset={-50}
-                  className="nav-link"
-                >
-                  Experience
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="skills"
-                  smooth={true}
-                  duration={400}
-                  offset={-50}
-                  className="nav-link"
-                >
-                  Techs Used
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="contact"
-                  smooth={true}
-                  duration={400}
-                  offset={-80}
-                  className="nav-link"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="youtube"
-                  smooth={true}
-                  duration={400}
-                  offset={-80}
-                  className="nav-link"
-                >
-                  Youtube Channel
-                </Link>
-              </li>
+              {[
+                { name: "Home", to: "home", offset: -80 },
+                { name: "Education", to: "education", offset: -80 },
+                { name: "Experience", to: "experience", offset: -50 },
+                { name: "Techs Used", to: "skills", offset: -50 },
+                { name: "Contact", to: "contact", offset: -80 },
+                { name: "YouTube Channel", to: "youtube", offset: -80 },
+              ].map((item) => (
+                <li className="nav-item" key={item.to}>
+                  <Link
+                    to={item.to}
+                    smooth={true}
+                    duration={400}
+                    offset={item.offset}
+                    className={`nav-link ${active === item.to ? "active" : ""}`}
+                    onClick={() => handleSetActive(item.to)}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

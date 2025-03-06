@@ -11,6 +11,9 @@ import Experience from "./components/Experience/Experience";
 import Contact from "./components/Contact/Contact";
 import FileUploader from "./components/FileUploader";
 import Youtube from "./components/Youtube/Youtube";
+
+import HtmlBlogUpload from "./components/Blog/HtmlBlogUpload";
+import HtmlBlog from "./components/Blog/HtmlBlog";
 const App = () => {
   return (
     <>
@@ -38,6 +41,12 @@ const App = () => {
           </Routes>
           <Routes>
             <Route path="/fileUploader" element={<FileUploader />} />
+          </Routes>
+          <Routes>
+            <Route path="/blog" element={<HtmlBlogUpload />} />
+          </Routes>
+          <Routes>
+            <Route path="/htmlBlog" element={<HtmlBlog />} />
           </Routes>
         </MyResumeContextProvider>
       </BrowserRouter>

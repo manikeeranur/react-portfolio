@@ -1,93 +1,32 @@
-// import React, { useState } from "react";
-
-// const FileUploader = () => {
-//   const [uploadedData, setUploadedData] = useState([]);
-//   const url = "https://api.cloudinary.com/v1_1/duuesjzan/image/upload";
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     const files = e.target.fileInput.files;
-//     const uploadedResponses = [];
-
-//     for (let i = 0; i < files.length; i++) {
-//       const formData = new FormData();
-//       formData.append("file", files[i]);
-//       formData.append("upload_preset", "ml_default");
-
-//       try {
-//         const response = await fetch(url, {
-//           method: "POST",
-//           body: formData,
-//         });
-
-//         const data = await response.json();
-//         uploadedResponses.push(data);
-//       } catch (error) {
-//         console.error("Error uploading file:", error);
-//       }
-//     }
-
-//     setUploadedData((prev) => [...prev, ...uploadedResponses]);
-//   };
-
-//   return (
-//     <div>
-//       <form onSubmit={handleSubmit}>
-//         <input type="file" name="fileInput" multiple />
-//         <button type="submit">Upload</button>
-//       </form>
-
-//       <div id="data">
-//         {uploadedData.map((data, index) => (
-//           <div key={index}>
-//             <p>Uploaded File: {data.original_filename}</p>
-//             <img
-//               src={data.secure_url}
-//               alt={data.original_filename}
-//               width="200"
-//             />
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default FileUploader;
-
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
-const FileUploader = ({
-  productId = 1,
-  fileName = "FrontImage",
-  setImageUrl,
-}) => {
-  const UserId = 1;
+const FileUploader = ({ fileName = "FrontImage", setImageUrl = () => {} }) => {
+  const { folderName } = useParams();
+
   const [uploadedData, setUploadedData] = useState([]);
 
   const cloudName = "duuesjzan";
   const uploadPreset = "ml_default";
-  const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
 
   const handleFileUpload = async () => {
     const files = document.getElementById(fileName).files;
     const uploadedResponses = [];
-    const folderName = `User_${UserId}/${
-      productId ? `Product_${productId}` : "Common"
-    }/${fileName}`;
+
+    const folderPath = folderName;
 
     for (let i = 0; i < files.length; i++) {
       const formData = new FormData();
       formData.append("file", files[i]);
       formData.append("upload_preset", uploadPreset);
-      formData.append("folder", folderName);
 
-      const customFileName = `FI_Shoe_${Date.now()}`;
-      formData.append("public_id", customFileName);
+      const originalFileName = files[i].name.replace(/\.[^/.]+$/, "");
+      const uploadUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload?folder=${encodeURIComponent(
+        folderPath
+      )}&public_id=${encodeURIComponent(originalFileName)}`;
 
       try {
-        const response = await fetch(url, {
+        const response = await fetch(uploadUrl, {
           method: "POST",
           body: formData,
         });
@@ -99,19 +38,16 @@ const FileUploader = ({
       }
     }
 
-    setUploadedData((prev) => {
-      const newData = [...prev, ...uploadedResponses];
-      return newData;
-    });
+    setUploadedData((prev) => [...prev, ...uploadedResponses]);
 
-    setImageUrl(() => {
-      const newPublicId = uploadedResponses[0]?.public_id;
-      return newPublicId;
-    });
+    if (setImageUrl && uploadedResponses.length > 0) {
+      setImageUrl(uploadedResponses[0]?.public_id);
+    }
   };
 
   return (
-    <div className="col-12">
+    <div className="col-12 w-100 min-vh-100 bg-white p-5">
+      <h3>Uploading to: {folderName}</h3>
       <div className="d-flex align-items-center gap-3">
         <input
           type="file"
@@ -130,15 +66,33 @@ const FileUploader = ({
       </div>
 
       <div id="data">
+        <div className="row gap-2 mt-3 mb-5">
+          {uploadedData.map((data, index) => (
+            <div
+              className="card px-0"
+              style={{
+                width: "24%",
+              }}
+            >
+              <img
+                key={index}
+                src={data.secure_url}
+                alt={data.original_filename}
+                className="col-12 p-3"
+              />
+              <div className="card-footer bg-dark text-white">
+                {" "}
+                {data.original_filename}
+              </div>
+            </div>
+          ))}
+        </div>
         {uploadedData.map((data, index) => (
           <div key={index}>
-            <p>Uploaded File: {data.original_filename}</p>
-            <p>Custom Name: {data.public_id}</p>
-            <img
-              src={data.secure_url}
-              alt={data.original_filename}
-              width="200"
-            />
+            <p>
+              <b>Stored URL : </b>
+              {data.url}
+            </p>
           </div>
         ))}
       </div>

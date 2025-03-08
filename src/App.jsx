@@ -40,7 +40,10 @@ const App = () => {
             <Route path="/myresume" element={<MyResume />} />
           </Routes>
           <Routes>
-            <Route path="/fileUploader" element={<FileUploader />} />
+            <Route
+              path="/fileuploader/:folderName"
+              element={<FileUploader />}
+            />
           </Routes>
           <Routes>
             <Route path="/blog" element={<HtmlBlogUpload />} />

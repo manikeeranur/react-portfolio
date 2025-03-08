@@ -5,7 +5,9 @@
 
 :root {
   /* --blue: #0a192f; */
-  --blue: #1a2417;
+  /* --blue: #1a2417; */
+  --blue: #000;
+
   --lightslategray: #8892b0;
   /* --lavender: #ccd6f6; */
   --lavender: #abc8a2;
@@ -112,7 +114,7 @@ body {
   align-items: center;
   border-radius: 3px;
   padding: 8px;
-  background: #e0e0e005;
+  background: #69696930;
   color: var(--lavender);
   border: 0.5px solid #e0e0e014;
 }
@@ -175,7 +177,7 @@ body {
   color: var(--lavender);
   padding: 1rem;
   border-radius: 4px;
-  background: #e0e0e005;
+  background: #69696930;
   border: 0.5px solid #e0e0e014;
   font-size: 18px;
 }
@@ -367,5 +369,13 @@ body {
     width: 100%;
     padding: 1rem;
     border-radius: 0 0 8px 8px;
+  }
+  #education,
+  #experience,
+  #skills,
+  #contact,
+  #youtube {
+    margin-top: 100px;
+    padding: 0 1rem;
   }
 }

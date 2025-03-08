@@ -101,7 +101,7 @@
 
 // export default Navbar;
 import React, { useState, useEffect } from "react";
-import Profile from "../../Images/Profile/profile.jpeg";
+import Profile from "../../Images/Profile/manikandan_profile.jpeg";
 import { Link } from "react-scroll";
 
 const Navbar = () => {

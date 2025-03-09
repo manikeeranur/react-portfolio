@@ -1,49 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CustomSwiper from "../CustomSwiper/CustomSwiper";
+import { SwiperSlide } from "swiper/react";
 
 const Youtube = () => {
   return (
     <>
       <div id="youtube">
-        <div className="container youtube">
+        <div className="container youtube py-5 py-md-0">
           <div className="heading-top">YouTube Channel</div>
-
-          <div className="d-flex  flex-wrap gap-5">
-            <div className="video-wrapper mb-4 mb-md-0">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/U058fhO_rNY?si=Ca5e9Ue-PonRaGkr"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
+          <div className="d-flex flex-wrap gap-5">
+            <div className="col-md-5 col-12">
+              <CustomSwiper>
+                {[1, 2, 3, 4, 5].map((data, index) => (
+                  <SwiperSlide key={index} className="slide">
+                    <Link
+                      to="https://www.youtube.com/@studentcodertech8500"
+                      target="_blank"
+                      className="p-2 d-block bg-secondary"
+                      // style={{
+                      //   background: "#69696930",
+                      // }}
+                    >
+                      <img
+                        src={`http://res.cloudinary.com/duuesjzan/image/upload/v1741522928/youtube_navbar_designs/thumbnail${data}.jpg`}
+                        alt="image_thumbnail"
+                        className="w-100"
+                      />
+                    </Link>
+                  </SwiperSlide>
+                ))}
+              </CustomSwiper>
             </div>
+            <div className="col-md col-12">
+              <div className="title">Student Coder Tech! 🎯</div>
+              <div>
+                Student Coder Tech is a Tamil programming YouTube channel
+                dedicated to making web development easy for beginners. Learn
+                HTML, CSS, and UI Development with step-by-step tutorials and
+                hands-on projects.
+              </div>
 
-            <div className="video-wrapper  mb-4 mb-md-0">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/vpT4COLg_AY?si=s0ksgkuRhK0GF3U3"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
+              <div className="my-3">
+                <div>
+                  🔹 Master Frontend Technologies (HTML, CSS, JavaScript)
+                </div>
+                <div>🔹 Build Responsive UIs with Flexbox & Grid</div>
+                <div>🔹 Create Modern Web Designs with real-world examples</div>
+              </div>
+
+              <div>
+                🚀 Start your coding journey today! Subscribe now and level up
+                your skills.
+              </div>
+              <Link
+                to="https://www.youtube.com/@studentcodertech8500"
+                target="_blank"
+                className="text-decoration-none text-lavender mt-2 d-block "
+              >
+                🔗 Subscribe on YouTube
+              </Link>
             </div>
-          </div>
-          <div className="my-4 mt-md-5">
-            {" "}
-            <Link
-              to="https://www.youtube.com/@studentcodertech8500"
-              target="_blank"
-              className="download-button-new"
-            >
-              More Videos to view My YouTube Channel
-            </Link>
           </div>
         </div>
       </div>

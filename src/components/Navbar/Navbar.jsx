@@ -125,8 +125,13 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-md navbar-dark sticky-top">
         <div className="container">
-          <a className="navbar-brand" href="#">
-            <img src={Profile} alt="" width={40} className="rounded-circle" />
+          <a className="navbar-brand" href="/">
+            <img
+              src={Profile}
+              alt=""
+              width={40}
+              className="rounded-circle profile-img"
+            />
             <small className="ms-2">Manikandan Arumugam</small>
           </a>
           <button

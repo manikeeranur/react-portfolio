@@ -292,6 +292,11 @@ body {
 .navbar-brand {
   color: #ffffff8c !important;
 }
+.navbar-brand .profile-img {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--lavender);
+}
 .youtube {
   min-height: 100vh;
 }
@@ -317,6 +322,36 @@ body {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+
+.custom-swiper .custom-dot {
+  background: var(--lavender);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+  opacity: 0.3;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.custom-swiper .custom-dot.swiper-pagination-bullet-active {
+  /* background: var(--lavender); */
+  background: #ff5733;
+  opacity: 1;
+  transform: scale(1.3);
+}
+.youtube {
+  color: var(--lavender);
+}
+.youtube .title {
+  color: var(--lavender);
+  text-transform: capitalize;
+}
+.bg-lavender {
+  background: var(--lavender);
+}
+.text-lavender {
+  color: var(--lavender);
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .education .MuiTimelineItem-root::before {

@@ -154,6 +154,7 @@ const Navbar = () => {
                 { name: "Techs Used", to: "skills", offset: -50 },
                 { name: "Contact", to: "contact", offset: -80 },
                 { name: "YouTube Channel", to: "youtube", offset: -80 },
+                { name: "Projects", to: "projects", offset: -80 },
               ].map((item) => (
                 <li className="nav-item" key={item.to}>
                   <Link

@@ -28,7 +28,8 @@ body {
 #experience,
 #skills,
 #contact,
-#youtube {
+#youtube,
+#projects {
   margin-top: 100px;
 }
 
@@ -303,6 +304,19 @@ body {
 .youtube {
   min-height: 100vh;
 }
+.projects {
+  min-height: 100vh;
+}
+.projects {
+  color: var(--lavender);
+}
+.projects .project-title {
+  color: var(--slategray);
+  font-size: 18px !important;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+}
 .youtube .video-wrapper {
   position: relative;
   width: 100%; /* Adjust width based on your layout */
@@ -412,7 +426,8 @@ body {
   #experience,
   #skills,
   #contact,
-  #youtube {
+  #youtube,
+  #projects {
     margin-top: 100px;
     padding: 0 1rem;
   }

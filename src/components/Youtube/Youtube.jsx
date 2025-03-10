@@ -10,8 +10,8 @@ const Youtube = () => {
         <div className="container youtube py-5 py-md-0">
           <div className="heading-top">YouTube Channel</div>
           <div className="row flex-wrap align-items-start gap-5">
-            <div className="col-md-5 col-12 p-0">
-              <CustomSwiper>
+            <div className="col-md-5 col-12">
+              <CustomSwiper paginationId="swiper-pagination-1">
                 {[1, 2, 3, 4, 5].map((data, index) => (
                   <SwiperSlide key={index} className="slide">
                     <Link
@@ -23,7 +23,7 @@ const Youtube = () => {
                       // }}
                     >
                       <img
-                        src={`http://res.cloudinary.com/duuesjzan/image/upload/v1741522928/youtube_navbar_designs/thumbnail${data}.jpg`}
+                        src={`https://res.cloudinary.com/duuesjzan/image/upload/v1741628927/portfolio/youtube/thumbnail${data}.jpg`}
                         alt="image_thumbnail"
                         className="w-100"
                       />
@@ -32,7 +32,7 @@ const Youtube = () => {
                 ))}
               </CustomSwiper>
             </div>
-            <div className="col-md col-12 p-0">
+            <div className="col-md col-12">
               <div className="title mt-0">Student Coder Tech! 🎯</div>
               <div>
                 Student Coder Tech is a Tamil programming YouTube channel

@@ -81,7 +81,7 @@ const Contact = () => {
       <div className="container">
         <div className="heading-top">Contact Details</div>
         <div className="contact-form">
-          <div className="d-flex flex-wrap align-items-center gap-3">
+          <div className="d-flex flex-wrap gap-3">
             <div className="col-12 col-md-4 d-none">
               <div className="d-flex gap-5 flex-column align-items-center">
                 <img src={Profile} alt="" className="rounded-circle col-6" />

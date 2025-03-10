@@ -9,8 +9,8 @@ const Youtube = () => {
       <div id="youtube">
         <div className="container youtube py-5 py-md-0">
           <div className="heading-top">YouTube Channel</div>
-          <div className="d-flex flex-wrap gap-5">
-            <div className="col-md-5 col-12">
+          <div className="row flex-wrap align-items-start gap-5">
+            <div className="col-md-5 col-12 p-0">
               <CustomSwiper>
                 {[1, 2, 3, 4, 5].map((data, index) => (
                   <SwiperSlide key={index} className="slide">
@@ -32,8 +32,8 @@ const Youtube = () => {
                 ))}
               </CustomSwiper>
             </div>
-            <div className="col-md col-12">
-              <div className="title">Student Coder Tech! 🎯</div>
+            <div className="col-md col-12 p-0">
+              <div className="title mt-0">Student Coder Tech! 🎯</div>
               <div>
                 Student Coder Tech is a Tamil programming YouTube channel
                 dedicated to making web development easy for beginners. Learn

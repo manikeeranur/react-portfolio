@@ -9,8 +9,8 @@
   --blue: #000;
 
   --lightslategray: #8892b0;
-  /* --lavender: #ccd6f6; */
   --lavender: #abc8a2;
+  --lavender: #fff;
   --aquamarine: #62fbd6;
   /* --slategray: #717c98; */
   --slategray: #914bf1;
@@ -211,8 +211,8 @@ body {
 .contact-form .form-control {
   /* background: #3d4c634a;
   color: var(--lightslategray); */
-  background: #e0e0e005;
-  color: var(--lavender);
+  background: #ffffff12;
+  color: #fff;
   border: 0.5px solid #e0e0e014;
 }
 .contact-form .form-label {
@@ -250,7 +250,8 @@ body {
 .contact-form .detail .fa {
   width: 50px;
   height: 50px;
-  background: var(--lavender);
+  /* background: #abc8a2; */
+  background: #e8eafa;
   color: var(--blue);
   border-radius: 50%;
   text-align: center;
@@ -285,17 +286,19 @@ body {
 }
 
 .download-button-new:hover {
-  background: var(--blue);
-  color: var(--lavender);
-  border: 1px solid var(--lavender);
+  background: var(--lavender);
+  color: var(--blue);
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
 }
 .navbar-brand {
-  color: #ffffff8c !important;
+  color: #fff !important;
 }
 .navbar-brand .profile-img {
   width: 40px;
   height: 40px;
-  border: 4px solid var(--lavender);
+  /* border: 4px solid var(--lavender); */
 }
 .youtube {
   min-height: 100vh;

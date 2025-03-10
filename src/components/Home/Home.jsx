@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import Resume from "../download/Manikandan_Resume.pdf";
 import MyResume from "../Resume/MyResume";
 import { MyResumeContext } from "../context/MyResumeContext";
-import { TypeAnimation } from "react-type-animation";
 import Profile from "../../Images/Profile/manikandan_profile.jpeg";
 
 const Home = () => {

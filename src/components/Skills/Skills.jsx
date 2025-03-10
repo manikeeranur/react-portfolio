@@ -1,5 +1,4 @@
 import React from "react";
-import Marquee from "react-fast-marquee";
 import html from "../../Images/skills/html.svg";
 import css from "../../Images/skills/css.svg";
 import bootstrap from "../../Images/skills/bootstrap.svg";

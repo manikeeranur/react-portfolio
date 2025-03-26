@@ -19,15 +19,15 @@ const Home = () => {
             <h2 className="role">Frontend Developer.</h2>
 
             <div className="mt-4 mt-md-5">
-              <a
+              {/* <a
                 className="btn btn-outline-secondary download-button-new btn-sm mt-3 d-none d-md-inline"
                 onClick={downloadResumeAsPDF}
               >
                 Get My Resume
                 <i className="fa fa-download ms-3" aria-hidden="true"></i>
-              </a>
+              </a> */}
               <a
-                className="btn btn-outline-secondary download-button-new btn-sm mt-3 d-d-md-inline d-md-none"
+                className="btn btn-outline-secondary download-button-new btn-sm mt-3 d-none d-md-inline"
                 href={Resume}
                 download="Manikandan_Resume.pdf"
               >

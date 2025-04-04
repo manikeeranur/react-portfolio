@@ -46,11 +46,21 @@ const MyResumeContextProvider = ({ children }) => {
       technology: "Next.js, TypeScript, Material-UI (MUI), SCSS",
       project: "Impacteers",
       client: "",
+      // projectDescription: [
+      //   "Developed a real-time resume builder with customizable templates. Built interactive community features for networking and mentorship.",
+      //   "Integrated job recommendations based on user skills and interests.",
+      //   "Implemented RESTful API integrations for job listings and company profiles.",
+      //   "Led frontend development using Next.js, TypeScript, MUI, Tailwind CSS ensuring responsiveness.",
+      //   "Collaborated with UI/UX teams for a modern, accessible interface.",
+      //   "Optimized state management with Redux, improving performance.",
+      // ],
       projectDescription: [
-        "Developed a real-time resume builder with customizable templates. Built interactive community features for networking and mentorship.",
-        "Integrated job recommendations based on user skills and interests. Implemented RESTful API integrations for job listings and company profiles.",
-        "Led frontend development using Next.js, TypeScript, MUI, ensuring responsiveness. Collaborated with UI/UX teams for a modern, accessible interface.",
-        "Optimized state management with Redux, improving performance.",
+        "Led frontend development for integrated freight forwarding solutions, contributing to a 30% improvement in user workflow efficiency through intuitive UI and optimized component structures.",
+        "Developed high-performance web applications using Next.js, achieving faster load times (up to 40%) and seamless navigation.",
+        "Collaborated closely with UI/UX teams to build modern, accessible interfaces, ensuring WCAG compliance and improving user engagement metrics.",
+        "Integrated RESTful APIs and ensured mobile responsiveness, which helped reduce support tickets related to UI issues by 25%.",
+        "Enhanced user experience by contributing extensively to React.js components, improving component reusability and performance.",
+        "Managed frontend tasks in logistics and cargo management projects, driving better coordination and reducing development turnaround time by 20%.",
       ],
     },
     {
@@ -63,8 +73,10 @@ const MyResumeContextProvider = ({ children }) => {
       project: "iFACT – Integrated Freight forwarding, Agency and Cargo",
       client: "Logistics",
       projectDescription: [
-        "The Project deals with the online freight forwarding business. Freight forwarding is done by Ocean Imports and Exports, Air Imports and Exports.",
-        "The users can generate Job, Quotation, Booking, Invoice, Our BL, Liner BL, BL Release, Outstanding, Cargo and Containers. One can easily take monthly reports, volume and revenue by customer wise and by port wise and many more.",
+        "The Project deals with the online freight forwarding business.",
+        "Freight forwarding is done by Ocean Imports and Exports, Air Imports and Exports.",
+        "The users can generate Job, Quotation, Booking, Invoice, Our BL, Liner BL, BL Release, Outstanding, Cargo and Containers.",
+        "One can easily take monthly reports, volume and revenue by customer wise and by port wise and many more.",
         "The main aim of developing this project is to bring the users online from various branches, and store the data in one single location.",
       ],
     },
@@ -144,21 +156,29 @@ const MyResumeContextProvider = ({ children }) => {
     "Have a good communication with others.",
   ];
   const personalDetails = [
+    // {
+    //   title: "DOB",
+    //   value: "6th Oct, 1998",
+    // },
+    // {
+    //   title: "Father Name",
+    //   value: "Arumugam M",
+    // },
+    // {
+    //   title: "Gender",
+    //   value: "Male",
+    // },
+    // {
+    //   title: "Nationality",
+    //   value: "Indian",
+    // },
     {
-      title: "DOB",
-      value: "6th Oct, 1998",
+      title: "Portfolio",
+      value: "https://www.manikandan.pro",
     },
     {
-      title: "Father Name",
-      value: "Arumugam M",
-    },
-    {
-      title: "Gender",
-      value: "Male",
-    },
-    {
-      title: "Nationality",
-      value: "Indian",
+      title: "Blog",
+      value: "https://blog.manikandan.pro",
     },
     {
       title: "Language Known",

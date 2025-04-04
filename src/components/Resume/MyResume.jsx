@@ -89,7 +89,7 @@ const MyResume = () => {
                       </>
                     ) : null}
 
-                    {exp.projectDescription ? (
+                    {/* {exp.projectDescription ? (
                       <>
                         {exp.projectDescription.map((desc) => (
                           <div className="experience-details mt-2">
@@ -97,6 +97,22 @@ const MyResume = () => {
                               <i
                                 className="fa fa-caret-right hidden"
                                 aria-hidden="true"
+                              ></i>
+                            </p>
+                            <div className="mb-0 col ms-3 ">{desc}</div>
+                          </div>
+                        ))}
+                      </>
+                    ) : null} */}
+                    {exp.projectDescription ? (
+                      <>
+                        {exp.projectDescription.map((desc) => (
+                          <div className="experience-details mt-1">
+                            <p className="mb-0">
+                              <i
+                                className="fa fa-circle hidden"
+                                aria-hidden="true"
+                                style={{ fontSize: "6px" }}
                               ></i>
                             </p>
                             <div className="mb-0 col ms-3 ">{desc}</div>
@@ -205,7 +221,7 @@ const MyResume = () => {
         <div class="sign">
           <div>
             <p>Date:</p>
-            <p>Place:</p>
+            {/* <p>Place:</p> */}
           </div>
           <div>
             <p>( A.MANIKANDAN )</p>

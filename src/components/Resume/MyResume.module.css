@@ -159,7 +159,8 @@
 }
 .left,
 .right {
-  width: 47%;
+  /* width: 47%; */
+  width: 50%;
 }
 
 .Declaration {

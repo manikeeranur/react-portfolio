@@ -27,7 +27,7 @@ const Home = () => {
                 <i className="fa fa-download ms-3" aria-hidden="true"></i>
               </a> */}
               <a
-                className="btn btn-outline-secondary download-button-new btn-sm mt-3 d-none d-md-inline"
+                className="btn btn-outline-secondary download-button-new btn-sm mt-3 d-inline"
                 href={Resume}
                 download="Manikandan_Resume.pdf"
               >

@@ -7,25 +7,35 @@ const MyResumeContextProvider = ({ children }) => {
   const contactDetails = [
     {
       icon: "fa-envelope-o",
+      title: "Email",
       details: "manikeeranur2105@gmail.com",
     },
     {
       icon: "fa-mobile-phone",
+      title: "Phone",
       details: "(+91) 74022 72187",
     },
-    {
-      icon: "fa-globe",
-      details: "https://www.manikandan.pro",
-    },
+    // {
+    //   icon: "fa-globe",
+    //   title: "Portfolio",
+    //   details: "https://www.manikandan.pro",
+    // },
     {
       icon: "fa-github",
+      title: "GitHub",
       details: "https://github.com/manikeeranur",
+    },
+    {
+      icon: "fa-linkedin",
+      title: "LinkedIn",
+      details: "https://www.linkedin.com/in/manikandanarumugam001",
     },
   ];
 
   const gitHubLinks = [
-    // "https://github.com/manikeeranur",
     "https://manikeeranur.github.io/Reactproject1/",
+    // "https://github.com/manikeeranur",
+    // "https://www.manikandan.pro",
   ];
 
   const ExperienceDetails = [
@@ -33,14 +43,14 @@ const MyResumeContextProvider = ({ children }) => {
       role: "Front-End Developer",
       companyName: "Genrichers Innovations Private limited - Chennai.",
       experience: <WorkExperience startDate="11-Sep-2023" tillWorking={true} />,
-      technology: "MUI, SCSS, Next Js.",
+      technology: "Next.js, TypeScript, Material-UI (MUI), SCSS",
       project: "Impacteers",
       client: "",
       projectDescription: [
-        "Developed using Next.js, TypeScript, Material-UI (MUI), and SCSS, it offers a seamless experience with features like intuitive resume building tools, job search integration, and vibrant community interaction",
-        "Impacteer is a next-generation platform designed for students and professionals, facilitating community-driven resume building and job seeking.",
-        "Collaborated with UX/UI designers and backend developers to implement user-friendly interfaces and integrate with RESTful APIs.",
-        "Implemented state management using Context API.",
+        "Developed a real-time resume builder with customizable templates. Built interactive community features for networking and mentorship.",
+        "Integrated job recommendations based on user skills and interests. Implemented RESTful API integrations for job listings and company profiles.",
+        "Led frontend development using Next.js, TypeScript, MUI, ensuring responsiveness. Collaborated with UI/UX teams for a modern, accessible interface.",
+        "Optimized state management with Redux, improving performance.",
       ],
     },
     {
@@ -59,44 +69,60 @@ const MyResumeContextProvider = ({ children }) => {
       ],
     },
 
-    {
-      role: "Intern React Developer",
-      companyName: "Hermitz Media Pvt Ltd - (Remote).",
-      experience: "3 Months",
-      technology: "React Js.",
-      projectDescription: [],
-    },
+    // {
+    //   role: "Intern React Developer",
+    //   companyName: "Hermitz Media Pvt Ltd - (Remote).",
+    //   experience: "3 Months",
+    //   technology: "React Js.",
+    //   projectDescription: [],
+    // },
   ];
 
   const technicalSkills = [
     {
       title: "Language",
-      value: "HTML5, CSS3, JavaScript",
+      value: "JavaScript, TypeScript, HTML5, CSS3",
     },
     {
-      title: "Framework/Library",
-      value: "Bootstrap5, Material UI, React Js, Next Js",
+      title: "Frameworks & Libraries",
+      value: "React.js, Next.js",
     },
     {
-      title: "Version control",
-      value: "Git / GitHub",
+      title: "State Management",
+      value: "Context API, Redux",
     },
     {
-      title: "Tools",
-      value: "Visual Studio Code",
+      title: "UI Libraries & Styling",
+      value: "MUI, Tailwind CSS, Bootstrap, SCSS, ShadCN",
+    },
+    // {
+    //   title: "MERN Stack",
+    //   value: "MongoDB, Express.js, React.js, Node.js",
+    // },
+    {
+      title: "Version Control & CI/CD",
+      value: "Git, GitHub, Bitbucket, Jenkins",
+    },
+    {
+      title: "Tools & Platforms",
+      value: "Postman, AWS S3, Jira",
+    },
+    {
+      title: "Development Tools",
+      value: "VS Code, Chrome DevTools",
     },
   ];
   const educationDetails = [
     {
       degree: "Master of Computer Applications",
       institute: "MIET Arts & Science College, Trichy",
-      year: "2019 – 2021",
+      year: "2019 - 2021",
       percentage: "80%",
     },
     {
       degree: "Bachelor of Computer Applications",
       institute: "H.H.The Rajah’s college(Autonomous), Pudukkottai",
-      year: "2016 -2019",
+      year: "2016 - 2019",
       percentage: "66.57%",
     },
     {

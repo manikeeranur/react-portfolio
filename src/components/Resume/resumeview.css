@@ -4,7 +4,8 @@
   box-sizing: border-box;
   font-family: "Segoe UI";
   line-height: 25px;
-  font-size: 14px;
+  /* font-size: 14px; */
+  font-size: 13px;
 }
 .container-resume {
   width: 1024px;
@@ -70,9 +71,9 @@
   font-size: 20px;
 }
 .companyName {
-  font-size: 15px;
+  font-size: 13px;
   color: #424242;
-  font-weight: 600;
+  font-weight: 700;
 }
 .contactdetails p {
   display: flex;
@@ -104,17 +105,18 @@
   margin: 0;
 }
 .skills_box p:nth-child(1) {
-  width: 5%;
+  width: 4%;
 }
 .skills_box p:nth-child(2) {
-  width: 30%;
+  width: 35%;
   font-weight: bold;
 }
 .skills_box p:nth-child(3) {
-  width: 5%;
+  width: 4%;
 }
 .skills_box p:nth-child(4) {
   width: 55%;
+  white-space: nowrap;
 }
 .d-flex {
   display: flex;

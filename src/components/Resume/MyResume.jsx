@@ -36,7 +36,7 @@ const MyResume = () => {
           </div>
         </div>
         <div className="contactdetails">
-          {contactDetails.map((contact) => (
+          {contactDetails.slice(0, 4).map((contact) => (
             <div>
               <i className={`fa ${contact.icon}`} aria-hidden="true"></i>
               <span>{contact.details}</span>
@@ -63,36 +63,14 @@ const MyResume = () => {
                       </div>
                       {exp.project ? (
                         <div className="d-flex">
-                          <div className="companyName me-2">Project : </div>
+                          <div className="companyName me-2 fw-bold">
+                            Project :{" "}
+                          </div>
                           <div className="institute">
                             {exp.project} {exp.client}
                           </div>
                         </div>
                       ) : null}
-                      {/* {exp.project ? (
-                        <>
-                          <div className="project-title">Project Details</div>
-                          <div className="fw-bold">
-                            {exp.project} {exp.client}
-                          </div>
-                        </>
-                      ) : null}
-
-                      {exp.projectDescription ? (
-                        <>
-                          {exp.projectDescription.map((desc) => (
-                            <div className="experience-details mt-2">
-                              <p className="mb-0">
-                                <i
-                                  className="fa fa-caret-right hidden"
-                                  aria-hidden="true"
-                                ></i>
-                              </p>
-                              <div className="mb-0 col ms-3 ">{desc}</div>
-                            </div>
-                          ))}
-                        </>
-                      ) : null} */}
                     </div>
                   </div>
                 </div>
@@ -168,7 +146,7 @@ const MyResume = () => {
                   <i
                     className="fa fa-caret-right"
                     aria-hidden="true"
-                    style={{ width: "5%" }}
+                    style={{ width: "4%" }}
                   ></i>
                   {data}
                 </div>
@@ -188,9 +166,23 @@ const MyResume = () => {
                 </div>
               ))}
             </div>
+            {/* <div className="personal-details">
+              <p className="title">Contact Information</p>
+              {contactDetails.map((details) => (
+                <div className="skills_box">
+                  <p>
+                    <i className="fa fa-caret-right" aria-hidden="true"></i>
+                  </p>
+                  <p>{details.title}</p>
+                  <p>:</p>
+                  <p>{details.details}</p>
+                </div>
+              ))}
+            </div> */}
 
             <div className="github-links">
               <p className="title">GitHub Links</p>
+              {/* <p className="title">Projects Links</p> */}
               {gitHubLinks.map((github) => (
                 <div className="d-flex">
                   <p className="mb-2">
@@ -221,9 +213,9 @@ const MyResume = () => {
         </div>
       </div>
 
-      <a class="fixed-top m-5 py-5" onClick={downloadResumeAsPDF}>
+      {/* <a class="fixed-top m-5 py-5" onClick={downloadResumeAsPDF}>
         <button class="btn btn-sm btn-primary">Download</button>
-      </a>
+      </a> */}
     </div>
   );
 };

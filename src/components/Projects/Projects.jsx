@@ -18,7 +18,7 @@ const Projects = () => {
                 {[1, 2, 3, 4].map((data, index) => (
                   <SwiperSlide key={index} className="slide">
                     <Link
-                      to="https://blog.manikandan.pro/"
+                      to="https://blog.manikandan.site/"
                       target="_blank"
                       className="p-2 d-block bg-secondary"
                     >
@@ -38,7 +38,7 @@ const Projects = () => {
                 {[1, 2, 3, 4].map((data, index) => (
                   <SwiperSlide key={index} className="slide">
                     <Link
-                      to="https://www.manikandan.pro/"
+                      to="https://www.manikandan.site/"
                       target="_blank"
                       className="p-2 d-block bg-secondary"
                       style={{ aspectRatio: "16/9" }}

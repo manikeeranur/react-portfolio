@@ -18,7 +18,7 @@ const MyResumeContextProvider = ({ children }) => {
     // {
     //   icon: "fa-globe",
     //   title: "Portfolio",
-    //   details: "https://www.manikandan.pro",
+    //   details: "https://www.manikandan.site",
     // },
     {
       icon: "fa-github",
@@ -35,7 +35,7 @@ const MyResumeContextProvider = ({ children }) => {
   const gitHubLinks = [
     "https://manikeeranur.github.io/Reactproject1/",
     // "https://github.com/manikeeranur",
-    // "https://www.manikandan.pro",
+    // "https://www.manikandan.site",
   ];
 
   const ExperienceDetails = [
@@ -194,11 +194,11 @@ const MyResumeContextProvider = ({ children }) => {
     // },
     {
       title: "Portfolio",
-      value: "https://www.manikandan.pro",
+      value: "https://www.manikandan.site",
     },
     {
       title: "Blog",
-      value: "https://blog.manikandan.pro",
+      value: "https://blog.manikandan.site",
     },
     {
       title: "Language Known",

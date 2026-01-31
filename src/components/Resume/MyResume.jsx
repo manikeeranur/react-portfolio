@@ -127,7 +127,7 @@ const MyResume = () => {
           </div>
           <div className="right">
             <div className="technicalskills">
-              <p className="title">TECHINICAL SKILLS</p>
+              <p className="title">TECHNICAL SKILLS</p>
               {technicalSkills.map((skills) => (
                 <div className="skills_box">
                   <p>

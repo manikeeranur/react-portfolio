@@ -76,6 +76,8 @@ const AppContent = () => {
     }
   }, [isMyResumePage]); // Runs when route changes
 
+
+  
   return (
     <MyResumeContextProvider>
       {!isMyResumePage && <Navbar />} {/* Hide Navbar on /myresume */}

@@ -16,7 +16,8 @@ const Home = () => {
               Hi, I'm <span className="wave">👋</span>
             </p>
             <h2 className="myJob">Manikandan A</h2>
-            <h2 className="role">Frontend Developer.</h2>
+            {/* <h2 className="role">Frontend Developer.</h2> */}
+            <h2 className="role">Software Developer.</h2>
 
             <div className="mt-4 mt-md-5">
               {/* <a

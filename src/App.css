@@ -4,9 +4,9 @@
 }
 
 :root {
-  /* --blue: #0a192f; */
+  --blue: #0a192f;
   /* --blue: #1a2417; */
-  --blue: #000;
+  /* --blue: #000; */
 
   --lightslategray: #8892b0;
   --lavender: #abc8a2;
@@ -31,6 +31,12 @@ body {
 #youtube,
 #projects {
   margin-top: 100px;
+}
+
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
 }
 
 .navbar {

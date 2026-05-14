@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Profile from "../../Images/Profile/manikandan_profile.jpeg";
 import { Link } from "react-scroll";
 
 const Navbar = () => {
@@ -27,14 +26,9 @@ const Navbar = () => {
       className={`navbar navbar-expand-md navbar-light sticky-top${scrolled ? " navbar-scrolled" : ""}`}
     >
       <div className="container">
-        <a className="navbar-brand" href="/">
-          <img
-            src={Profile}
-            alt=""
-            width={40}
-            className="rounded-circle profile-img"
-          />
-          <small className="ms-2">Manikandan Arumugam</small>
+        <a className="navbar-brand d-flex align-items-center gap-2" href="/">
+          <div className="navbar-avatar">MA</div>
+          <span className="navbar-brand-name">Manikandan Arumugam</span>
         </a>
         <button
           className="navbar-toggler d-lg-none"

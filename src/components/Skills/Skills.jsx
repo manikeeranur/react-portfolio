@@ -18,32 +18,41 @@ const Skills = () => {
   const [ref, isVisible] = useScrollAnimation(0.1);
 
   const skills = [
-    { image: html, text: "HTML" },
-    { image: css, text: "CSS" },
-    { image: bootstrap, text: "Bootstrap" },
-    { image: scss, text: "Scss" },
+    { image: html,       text: "HTML" },
+    { image: css,        text: "CSS" },
+    { image: bootstrap,  text: "Bootstrap" },
+    { image: scss,       text: "Scss" },
     { image: materialui, text: "MUI" },
     { image: javascript, text: "JavaScript" },
-    { image: reactjs, text: "React Js" },
-    { image: nextjs, text: "Next Js" },
-    { image: vscode, text: "VS Code" },
-    { image: git, text: "Git" },
-    { image: jira, text: "Jira" },
-    { image: aws, text: "AWS (S3)" },
+    { image: reactjs,    text: "React Js" },
+    { image: nextjs,     text: "Next Js" },
+    { image: vscode,     text: "VS Code" },
+    { image: git,        text: "Git" },
+    { image: jira,       text: "Jira" },
+    { image: aws,        text: "AWS (S3)" },
   ];
+
+  const directions = ["left", "right", "top", "bottom"];
 
   const skillsCards = (startIndex, endIndex) => (
     <div className="skills-group">
       {skills.slice(startIndex, endIndex).map((skill, idx) => {
         const globalIdx = startIndex + idx;
+        const dir = directions[globalIdx % 4];
+        const initial =
+          dir === "left"   ? { opacity: 0, x: -60 } :
+          dir === "right"  ? { opacity: 0, x:  60 } :
+          dir === "top"    ? { opacity: 0, y: -60 } :
+                             { opacity: 0, y:  60 };
+
         return (
           <motion.div
             className="skills-box col"
             key={globalIdx}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.4, delay: globalIdx * 0.07 }}
-            whileHover={{ y: -5 }}
+            initial={initial}
+            animate={isVisible ? { opacity: 1, x: 0, y: 0 } : initial}
+            transition={{ duration: 0.5, delay: globalIdx * 0.07, ease: "easeOut" }}
+            whileHover={{ scale: 1.06, y: -4 }}
           >
             <img src={skill.image} alt={skill.text} width="35px" />
             <div className="ms-3">{skill.text}</div>
@@ -54,7 +63,7 @@ const Skills = () => {
   );
 
   return (
-    <div className="overflow-hidden skills" id="skills" ref={ref}>
+    <div className="skills" id="skills" ref={ref}>
       <div className="container">
         <div className="heading-top">Techs Used</div>
 

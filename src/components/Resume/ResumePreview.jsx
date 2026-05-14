@@ -50,7 +50,12 @@ const ResumePreview = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#fff", minHeight: "100vh" }}>
+    <div style={{
+      backgroundColor: "#fff",
+      color: "#000",
+      minHeight: "100vh",
+      fontFamily: "'Segoe UI', sans-serif",
+    }}>
       <div
         style={{
           display: "flex",

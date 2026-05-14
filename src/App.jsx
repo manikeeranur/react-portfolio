@@ -63,14 +63,25 @@ import Skills from "./components/Skills/Skills";
 import FileUploader from "./components/FileUploader";
 import Youtube from "./components/Youtube/Youtube";
 import Projects from "./components/Projects/Projects";
+import LetsTalk from "./components/Contact/LetsTalk";
+import Footer from "./components/Footer/Footer";
 
 const AppContent = () => {
   const location = useLocation();
   const isMyResumePage = location.pathname === "/myresume"; // Check if on /myresume
 
   useEffect(() => {
-    document.body.style.background = isMyResumePage ? "#ffffff" : "";
-    return () => { document.body.style.background = ""; };
+    if (isMyResumePage) {
+      document.body.style.background = "#ffffff";
+      document.body.style.color = "#000000";
+    } else {
+      document.body.style.background = "";
+      document.body.style.color = "";
+    }
+    return () => {
+      document.body.style.background = "";
+      document.body.style.color = "";
+    };
   }, [isMyResumePage]);
 
 
@@ -90,6 +101,8 @@ const AppContent = () => {
               <Contact />
               <Youtube />
               <Projects />
+              <LetsTalk />
+              <Footer />
             </>
           }
         />

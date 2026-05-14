@@ -208,14 +208,35 @@ const MyResumeContextProvider = ({ children }) => {
 
   const downloadResumeAsPDF = () => {
     const resume = document.getElementById("resume-content");
+    if (!resume) return Promise.resolve();
+
     const options = {
-      margin: 10,
-      filename: "Resume.pdf",
-      image: { type: "jpeg", quality: 1 },
-      html2canvas: { scale: 2, logging: true, scrollX: 0, scrollY: 0 },
-      jsPDF: { unit: "mm", format: "a3", orientation: "portrait" },
+      margin: 0,
+      filename: "Manikandan_Resume.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+        backgroundColor: "#ffffff",
+        scrollX: 0,
+        scrollY: 0,
+        onclone: (clonedDoc) => {
+          const wrapper = clonedDoc.getElementById("resume-pdf-wrapper");
+          if (wrapper) {
+            wrapper.style.display = "block";
+            wrapper.style.position = "fixed";
+            wrapper.style.top = "0";
+            wrapper.style.left = "0";
+            wrapper.style.width = "1024px";
+          }
+        },
+      },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
     };
-    html2pdf().set(options).from(resume).save("Manikandan_Resume.pdf");
+
+    return html2pdf().set(options).from(resume).save("Manikandan_Resume.pdf");
   };
 
   return (

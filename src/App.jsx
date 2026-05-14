@@ -54,7 +54,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
-import MyResume from "./components/Resume/MyResume";
+import ResumePreview from "./components/Resume/ResumePreview";
 import MyResumeContextProvider from "./components/context/MyResumeContext";
 import Education from "./components/Education/Education";
 import Experience from "./components/Experience/Experience";
@@ -69,12 +69,9 @@ const AppContent = () => {
   const isMyResumePage = location.pathname === "/myresume"; // Check if on /myresume
 
   useEffect(() => {
-    if (isMyResumePage) {
-      document.body.style.background = "white"; // Change background to white on /myresume
-    } else {
-      document.body.style.background = "var(--blue)"; // Default background
-    }
-  }, [isMyResumePage]); // Runs when route changes
+    document.body.style.background = isMyResumePage ? "#ffffff" : "";
+    return () => { document.body.style.background = ""; };
+  }, [isMyResumePage]);
 
 
   
@@ -96,7 +93,7 @@ const AppContent = () => {
             </>
           }
         />
-        <Route path="/myresume" element={<MyResume />} />
+        <Route path="/myresume" element={<ResumePreview />} />
         <Route path="/fileuploader/*" element={<FileUploader />} />
       </Routes>
     </MyResumeContextProvider>

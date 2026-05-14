@@ -1,22 +1,28 @@
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
 import { MyResumeContext } from "../context/MyResumeContext";
+import useScrollAnimation from "../../hooks/useScrollAnimation";
 
 const Experience = () => {
   const { ExperienceDetails } = useContext(MyResumeContext);
+  const [ref, isVisible] = useScrollAnimation(0.1);
 
   return (
     <>
-      <div className="experience pt-3" id="experience">
+      <div className="experience pt-3" id="experience" ref={ref}>
         <div className="container overflow-hidden">
           <div className="heading-top">Experience</div>
 
           <div className="d-flex flex-wrap gap-3">
             {ExperienceDetails.slice(0, 2).map((exp, index) => (
-              <div className="col-md col-12">
-                <div
-                  className="experience-details flex-column col-12"
-                  key={index}
-                >
+              <motion.div
+                className="col-md col-12"
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.55, delay: index * 0.2 }}
+              >
+                <div className="experience-details flex-column col-12">
                   <div className="d-flex justify-content-between">
                     <div className="role">{exp.role}</div>
                     <div className="institute">{exp.experience}</div>
@@ -33,20 +39,8 @@ const Experience = () => {
                       </div>
                     </div>
                   ) : null}
-                  {/* <div className="col">
-                    {exp.projectDescription.length ? (
-                      <>
-                        <div className="company-name mb-2">
-                          Project Description
-                        </div>
-                        {exp.projectDescription.map((desc) => (
-                          <div className="institute mb-2">{desc}</div>
-                        ))}
-                      </>
-                    ) : null}
-                  </div> */}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

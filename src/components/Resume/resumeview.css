@@ -19,8 +19,10 @@
   background-image: url(../../Images/Profile/resume-image.jpeg);
   border-radius: 50%;
   background-repeat: no-repeat;
-  background-position: 0px -45px;
-  background-size: cover;
+  /* background-position: 0px -45px; */
+  /* background-size: cover; */
+  background-position: center;
+  background-size: contain;
 }
 .header {
   display: flex;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import MyResume from "./MyResume";
+import API_BASE from "../../config";
 
 const ResumePreview = () => {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -59,7 +60,7 @@ const ResumePreview = () => {
   const handleDownload = async () => {
     setIsGenerating(true);
     try {
-      const res = await fetch("/api/pdf");
+      const res = await fetch(`${API_BASE}/api/pdf`);
       if (!res.ok) throw new Error("PDF generation failed");
       const blob = await res.blob();
       const url  = URL.createObjectURL(blob);

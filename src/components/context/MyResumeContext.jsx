@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import html2pdf from "html2pdf.js";
 import profileSeedData from "../../data/profileSeedData";
+import API_BASE from "../../config";
 
 export const ResumeContext = createContext();
 export const MyResumeContext = createContext();
@@ -22,7 +23,7 @@ const MyResumeContextProvider = ({ children }) => {
 
   // ── Fetch live profile from backend API on every page load ──────────────────
   useEffect(() => {
-    fetch(`/api/profile?_=${Date.now()}`, { cache: "no-store" })
+    fetch(`${API_BASE}/api/profile?_=${Date.now()}`, { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error("Profile API unavailable");
         return res.json();
@@ -51,7 +52,7 @@ const MyResumeContextProvider = ({ children }) => {
     setProfileData({ ...newData });
 
     try {
-      const res = await fetch("/api/profile", {
+      const res = await fetch(`${API_BASE}/api/profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

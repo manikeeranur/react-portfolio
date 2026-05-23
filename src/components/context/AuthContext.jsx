@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import axios from 'axios';
+import API_BASE from '../../config';
 
 const AuthContext = createContext(null);
 
@@ -13,7 +14,7 @@ export const AuthProvider = ({ children }) => {
   // POST /api/auth/login → returns {success, token, username} or {success, error}
   const login = async (username, password) => {
     try {
-      const { data } = await axios.post('/api/auth/login', { username, password });
+      const { data } = await axios.post(`${API_BASE}/api/auth/login`, { username, password });
       if (data.success) {
         localStorage.setItem('portfolio_token', data.token);
         setIsAuthenticated(true);
@@ -36,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const token = getToken();
       const { data } = await axios.put(
-        '/api/auth/change-password',
+        `${API_BASE}/api/auth/change-password`,
         { currentPassword: currentPass, newPassword: newPass },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -1,9 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import MyResume from "./MyResume";
 
 const ResumePreview = () => {
   const [isGenerating, setIsGenerating] = useState(false);
+  const topbarRef = useRef(null);
 
+  // Mobile only: scale full 1024px resume to fit screen — no scroll
+  useEffect(() => {
+    const scaleResume = () => {
+      const container = document.querySelector(".container-resume");
+      const wrapper   = document.querySelector(".my-resume");
+      if (!container || !wrapper) return;
+
+      const vw = window.innerWidth;
+
+      if (vw < 1024) {
+        const topbarH = topbarRef.current ? topbarRef.current.offsetHeight : 50;
+        const availH  = window.innerHeight - topbarH;
+
+        // Reset to measure natural height
+        container.style.transform      = "";
+        container.style.marginLeft     = "";
+        wrapper.style.height           = "";
+        wrapper.style.overflow         = "";
+
+        const naturalH = container.offsetHeight;
+
+        // Fit both width and height
+        const scale      = Math.min(vw / 1024, availH / naturalH);
+        const scaledW    = 1024 * scale;
+        const scaledH    = naturalH * scale;
+        const leftOffset = (vw - scaledW) / 2;
+
+        container.style.transform       = `scale(${scale})`;
+        container.style.transformOrigin = "top left";
+        container.style.marginLeft      = `${leftOffset}px`;
+        wrapper.style.height            = `${scaledH}px`;
+        wrapper.style.overflow          = "hidden";
+      } else {
+        // Large screen — restore everything, no changes
+        container.style.transform       = "";
+        container.style.transformOrigin = "";
+        container.style.marginLeft      = "";
+        wrapper.style.height            = "";
+        wrapper.style.overflow          = "";
+      }
+    };
+
+    const timer = setTimeout(scaleResume, 100);
+    window.addEventListener("resize", scaleResume);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", scaleResume);
+    };
+  }, []);
+
+  // Download — Puppeteer backend, no popup (unchanged)
   const handleDownload = async () => {
     setIsGenerating(true);
     try {
@@ -32,6 +84,7 @@ const ResumePreview = () => {
       fontFamily: "'Segoe UI', sans-serif",
     }}>
       <div
+        ref={topbarRef}
         className="resume-topbar"
         style={{
           display: "flex",

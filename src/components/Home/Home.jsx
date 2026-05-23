@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-scroll";
-import Profile from "../../Images/Profile/manikandan_profile.jpeg";
+import { MyResumeContext } from "../context/MyResumeContext";
+
+const staticProfile = "/images/profile/manikandan_profile.jpeg";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -11,6 +13,13 @@ const fadeUp = (delay = 0) => ({
 });
 
 const Home = () => {
+  const { profileData } = useContext(MyResumeContext);
+  const { personalInfo, profileImage } = profileData;
+
+  const displayName  = personalInfo.name  || "Manikandan A";
+  const displayTitle = personalInfo.title || "Frontend Developer";
+  const displayImg   = profileImage || staticProfile;
+
   const handleViewResume = () => {
     window.open("/myresume", "_blank");
   };
@@ -29,7 +38,7 @@ const Home = () => {
           >
             <div className="profile-ring-wrapper profile-ring-sm">
               <div className="profile-ring-inner">
-                <img src={Profile} alt="Manikandan" className="home-profile-img" />
+                <img src={displayImg} alt={displayName} className="home-profile-img" />
               </div>
             </div>
           </motion.div>
@@ -41,13 +50,13 @@ const Home = () => {
             </motion.p>
 
             <motion.h1 className="myJob" {...fadeUp(0.18)}>
-              Manikandan A
+              {displayName}
             </motion.h1>
 
             <motion.div {...fadeUp(0.36)}>
               <TypeAnimation
                 sequence={[
-                  "Software Developer.",
+                  displayTitle + ".",
                   2000,
                   "Frontend Developer.",
                   2000,
@@ -89,8 +98,8 @@ const Home = () => {
             >
               <div className="profile-ring-inner">
                 <img
-                  src={Profile}
-                  alt="Manikandan"
+                  src={displayImg}
+                  alt={displayName}
                   className="home-profile-img-desktop"
                 />
               </div>

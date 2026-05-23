@@ -51,7 +51,7 @@
 // export default App;
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import ResumePreview from "./components/Resume/ResumePreview";
@@ -65,10 +65,19 @@ import Youtube from "./components/Youtube/Youtube";
 import Projects from "./components/Projects/Projects";
 import LetsTalk from "./components/Contact/LetsTalk";
 import Footer from "./components/Footer/Footer";
+import Login from "./components/Auth/Login";
+import Profile from "./components/Profile/Profile";
+import { AuthProvider, useAuth } from "./components/context/AuthContext";
+
+const PrivateRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? children : <Navigate to="/login" replace />;
+};
 
 const AppContent = () => {
   const location = useLocation();
-  const isMyResumePage = location.pathname === "/myresume"; // Check if on /myresume
+  const isMyResumePage = location.pathname === "/myresume";
+  const isAuthPage = ["/login", "/profile"].includes(location.pathname);
 
   useEffect(() => {
     if (isMyResumePage) {
@@ -84,11 +93,9 @@ const AppContent = () => {
     };
   }, [isMyResumePage]);
 
-
-  
   return (
     <MyResumeContextProvider>
-      {!isMyResumePage && <Navbar />} {/* Hide Navbar on /myresume */}
+      {!isMyResumePage && !isAuthPage && <Navbar />}
       <Routes>
         <Route
           path="/"
@@ -108,6 +115,15 @@ const AppContent = () => {
         />
         <Route path="/myresume" element={<ResumePreview />} />
         <Route path="/fileuploader/*" element={<FileUploader />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </MyResumeContextProvider>
   );
@@ -116,7 +132,9 @@ const AppContent = () => {
 const App = () => {
   return (
     <BrowserRouter>
-      <AppContent />
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
     </BrowserRouter>
   );
 };

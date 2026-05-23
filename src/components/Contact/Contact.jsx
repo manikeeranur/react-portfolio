@@ -1,78 +1,73 @@
 import { Button } from "@mui/material";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import emailjs from "@emailjs/browser";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import Profile from "../../Images/Profile/manikandan_profile.jpeg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { MyResumeContext } from "../context/MyResumeContext";
+
+const staticProfile = "/images/profile/manikandan_profile.jpeg";
+
 const Contact = () => {
-  const [socialMedia, setSocialMedia] = useState([
-    {
-      icon: <GitHubIcon />,
-      link: "https://github.com/manikeeranur",
-    },
-    {
-      icon: <InstagramIcon />,
-      link: "https://www.instagram.com/manikeeranur/",
-    },
-    {
-      icon: <XIcon />,
-      link: "https://x.com/Manikeeranur1",
-    },
-    {
-      icon: <LinkedInIcon />,
-      link: "https://www.linkedin.com/in/manikandan-arumugam-577899203/",
-    },
-  ]);
+  const { profileData, contactDetails } = useContext(MyResumeContext);
+  const { personalInfo, profileImage } = profileData;
 
-  const [contactDetails, setContactDetails] = useState([
-    {
-      icon: "fa fa-envelope-o",
-      title: "Email",
-      value: "manikeeranur2105@gmail.com",
-    },
-    {
-      icon: "fa fa-phone",
-      title: "Mobile",
-      value: "+91 7402272187",
-    },
-    {
-      icon: "fa fa-graduation-cap",
-      title: "Degree",
-      value: "Master of Computer Applications",
-    },
+  const displayName  = personalInfo.name  || "Manikandan Arumugam";
+  const displayTitle = personalInfo.title || "Frontend Developer";
+  const displayImg   = profileImage || staticProfile;
 
-    {
+  const socialMedia = [
+    { icon: <GitHubIcon />,    link: personalInfo.github   || "https://github.com/manikeeranur" },
+    { icon: <InstagramIcon />, link: "https://www.instagram.com/manikeeranur/" },
+    { icon: <XIcon />,         link: "https://x.com/Manikeeranur1" },
+    { icon: <LinkedInIcon />,  link: personalInfo.linkedin || "https://www.linkedin.com/in/manikandan-arumugam-577899203/" },
+  ];
+
+  // Map contactDetails from context to the icon format used in this view
+  const iconMap = {
+    "fa-envelope-o":   "fa fa-envelope-o",
+    "fa-mobile-phone": "fa fa-phone",
+    "fa-github":       "fa fa-github",
+    "fa-linkedin":     "fa fa-linkedin",
+  };
+
+  // Build the display list: profile image row + contact rows
+  const contactRows = contactDetails.map((c) => ({
+    icon: iconMap[c.icon] || `fa ${c.icon}`,
+    title: c.title,
+    value: c.details,
+  }));
+
+  // Always add degree + address from personalInfo if available
+  const extraRows = [
+    personalInfo.location && {
       icon: "fa fa-map-marker",
       title: "Address",
-      value: "Chennai,Tamil Nadu - India",
+      value: personalInfo.location,
     },
-  ]);
+  ].filter(Boolean);
+
+  const allRows = [...contactRows, ...extraRows];
 
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm("service_ce31qr7", "template_cf7qdo9", form.current, {
         publicKey: "3JMxe97whwmmH8TI-",
       })
       .then(
         () => {
-          console.log("SUCCESS!");
-          toast("Email Send Successfully", {
-            position: "bottom-left",
-          });
+          toast("Email Sent Successfully", { position: "bottom-left" });
         },
         (error) => {
           console.log("FAILED...", error.text);
         }
       );
-
     e.target.reset();
   };
 
@@ -82,50 +77,37 @@ const Contact = () => {
         <div className="heading-top">Contact Details</div>
         <div className="contact-form">
           <div className="d-flex flex-wrap gap-3">
-            <div className="col-12 col-md-4 d-none">
-              <div className="d-flex gap-5 flex-column align-items-center">
-                <img src={Profile} alt="" className="rounded-circle col-6" />
-                <div className="d-flex  gap-3">
-                  {socialMedia.map((data) => (
-                    <Button
-                      size="large"
-                      className="bg-light text-dark"
-                      href={data.link}
-                      target="_blank"
-                    >
-                      {data.icon}{" "}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
             <div className="col-12 col-md">
               <div className="d-flex flex-wrap">
+                {/* Profile identity row */}
                 <div className="detail col-md-6 col-12">
                   <img
-                    src={Profile}
-                    alt=""
+                    src={displayImg}
+                    alt={displayName}
                     className="rounded-circle fa"
                     width="50px"
+                    style={{ objectFit: "cover" }}
                   />
                   <div>
-                    <div className="text-nowrap">Manikandan Arumugam</div>
-                    <div className="text-nowrap">Frontend Developer</div>
+                    <div className="text-nowrap">{displayName}</div>
+                    <div className="text-nowrap">{displayTitle}</div>
                   </div>
                 </div>
-                {contactDetails.map((detail) => (
-                  <div className="detail col-md-6 col-12">
-                    <i className={`fa ${detail?.icon}`} aria-hidden="true"></i>
+
+                {/* Dynamic contact rows */}
+                {allRows.map((row, i) => (
+                  <div key={i} className="detail col-md-6 col-12">
+                    <i className={row.icon} aria-hidden="true"></i>
                     <div className="col">
-                      <div>{detail.title}</div>
-                      <div className="col-12 col-md-9">{detail.value}</div>
+                      <div>{row.title}</div>
+                      <div className="col-12 col-md-9">{row.value}</div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
+            {/* Email form */}
             <div className="col-12 col-md-4 py-5 py-md-0">
               <form ref={form} onSubmit={sendEmail}>
                 <div className="form-group mb-3">
@@ -161,7 +143,6 @@ const Contact = () => {
                     required
                   />
                 </div>
-
                 <button type="submit" className="btn btn-sm btn-send mb-3">
                   Send
                 </button>

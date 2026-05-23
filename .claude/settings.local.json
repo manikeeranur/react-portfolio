@@ -6,7 +6,10 @@
       "Bash(Sort-Object FullName)",
       "Bash(npm start *)",
       "Bash(npx react-scripts *)",
-      "Bash(Select-String \"html2canvas|jspdf\")"
+      "Bash(Select-String \"html2canvas|jspdf\")",
+      "Bash(Read \"C:\\\\Users\\\\MANIKA~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-ManikandanArumugam-project-Manikandan-react-portfolio\\\\378fc7e8-de9b-494f-ac69-f9718b73454b\\\\tasks\\\\b8pqac0uu.output\")",
+      "Bash(Get-ChildItem -Recurse \"c:\\\\Users\\\\ManikandanArumugam\\\\project\\\\Manikandan\\\\react-portfolio\\\\src\\\\Images\")",
+      "Bash(Select-Object FullName)"
     ]
   }
 }

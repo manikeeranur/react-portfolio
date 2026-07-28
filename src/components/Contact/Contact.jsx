@@ -1,51 +1,34 @@
-import { Button } from "@mui/material";
-import React, { useState, useRef, useContext } from "react";
+import React, { useRef, useContext } from "react";
 import emailjs from "@emailjs/browser";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import XIcon from "@mui/icons-material/X";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { MyResumeContext } from "../context/MyResumeContext";
-
-const staticProfile = "/images/profile/manikandan_profile.jpeg";
+import SectionHeader from "../common/SectionHeader";
 
 const Contact = () => {
   const { profileData, contactDetails } = useContext(MyResumeContext);
-  const { personalInfo, profileImage } = profileData;
+  const { personalInfo } = profileData;
 
-  const displayName  = personalInfo.name  || "Manikandan Arumugam";
-  const displayTitle = personalInfo.title || "Frontend Developer";
-  const displayImg   = profileImage || staticProfile;
-
-  const socialMedia = [
-    { icon: <GitHubIcon />,    link: personalInfo.github   || "https://github.com/manikeeranur" },
-    { icon: <InstagramIcon />, link: "https://www.instagram.com/manikeeranur/" },
-    { icon: <XIcon />,         link: "https://x.com/Manikeeranur1" },
-    { icon: <LinkedInIcon />,  link: personalInfo.linkedin || "https://www.linkedin.com/in/manikandan-arumugam-577899203/" },
-  ];
-
-  // Map contactDetails from context to the icon format used in this view
   const iconMap = {
-    "fa-envelope-o":   "fa fa-envelope-o",
-    "fa-mobile-phone": "fa fa-phone",
-    "fa-github":       "fa fa-github",
-    "fa-linkedin":     "fa fa-linkedin",
+    "fa-envelope-o":   "fa-envelope-o",
+    "fa-mobile-phone": "fa-phone",
+    "fa-github":       "fa-github",
+    "fa-linkedin":     "fa-linkedin",
   };
 
-  // Build the display list: profile image row + contact rows
+  const stripProtocol = (v) =>
+    typeof v === "string" ? v.replace(/^https?:\/\//, "") : v;
+
   const contactRows = contactDetails.map((c) => ({
-    icon: iconMap[c.icon] || `fa ${c.icon}`,
+    icon: iconMap[c.icon] || c.icon,
     title: c.title,
-    value: c.details,
+    value: stripProtocol(c.details),
   }));
 
-  // Always add degree + address from personalInfo if available
   const extraRows = [
     personalInfo.location && {
-      icon: "fa fa-map-marker",
-      title: "Address",
+      icon: "fa-map-marker",
+      title: "Location",
       value: personalInfo.location,
     },
   ].filter(Boolean);
@@ -72,51 +55,35 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact">
-      <div className="container">
-        <div className="heading-top">Contact Details</div>
-        <div className="contact-form">
-          <div className="d-flex flex-wrap gap-3">
-            <div className="col-12 col-md">
-              <div className="d-flex flex-wrap">
-                {/* Profile identity row */}
-                <div className="detail col-md-6 col-12">
-                  <img
-                    src={displayImg}
-                    alt={displayName}
-                    className="rounded-circle fa"
-                    width="50px"
-                    style={{ objectFit: "cover" }}
-                  />
-                  <div>
-                    <div className="text-nowrap">{displayName}</div>
-                    <div className="text-nowrap">{displayTitle}</div>
-                  </div>
+    <div className="section-card" id="contact">
+      <div className="home-container">
+        <SectionHeader number="07" title="Contact Me" />
+
+        <div className="contact-grid">
+          <div className="contact-details-col">
+            {allRows.map((row, i) => (
+              <div key={i} className="contact-detail-row">
+                <span className="contact-detail-icon">
+                  <i className={`fa ${row.icon}`} aria-hidden="true" />
+                </span>
+                <div>
+                  <div className="contact-detail-title">{row.title}</div>
+                  <div className="contact-detail-value">{row.value}</div>
                 </div>
-
-                {/* Dynamic contact rows */}
-                {allRows.map((row, i) => (
-                  <div key={i} className="detail col-md-6 col-12">
-                    <i className={row.icon} aria-hidden="true"></i>
-                    <div className="col">
-                      <div>{row.title}</div>
-                      <div className="col-12 col-md-9">{row.value}</div>
-                    </div>
-                  </div>
-                ))}
               </div>
-            </div>
+            ))}
+          </div>
 
-            {/* Email form */}
-            <div className="col-12 col-md-4 py-5 py-md-0">
-              <form ref={form} onSubmit={sendEmail}>
+          <div className="contact-form-col">
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="contact-form-row">
                 <div className="form-group mb-3">
                   <label className="form-label">Your Name</label>
                   <input
                     type="text"
                     name="from_name"
                     className="form-control"
-                    placeholder="Enter Your Name"
+                    placeholder="Enter your name"
                     autoComplete="off"
                     required
                   />
@@ -127,27 +94,38 @@ const Contact = () => {
                     type="email"
                     name="from_email"
                     className="form-control"
-                    placeholder="Enter Your Email"
+                    placeholder="Enter your email"
                     autoComplete="off"
                     required
                   />
                 </div>
-                <div className="form-group mb-3">
-                  <label className="form-label">Your Message</label>
-                  <textarea
-                    name="message"
-                    className="form-control"
-                    placeholder="Enter Your Message"
-                    rows={3}
-                    autoComplete="off"
-                    required
-                  />
-                </div>
-                <button type="submit" className="btn btn-sm btn-send mb-3">
-                  Send
-                </button>
-              </form>
-            </div>
+              </div>
+              <div className="form-group mb-3">
+                <label className="form-label">Subject</label>
+                <input
+                  type="text"
+                  name="subject"
+                  className="form-control"
+                  placeholder="Enter subject"
+                  autoComplete="off"
+                />
+              </div>
+              <div className="form-group mb-3">
+                <label className="form-label">Your Message</label>
+                <textarea
+                  name="message"
+                  className="form-control"
+                  placeholder="Write your message..."
+                  rows={4}
+                  autoComplete="off"
+                  required
+                />
+              </div>
+              <button type="submit" className="btn-send">
+                <i className="fa fa-paper-plane-o me-2" aria-hidden="true" />
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
         <ToastContainer />

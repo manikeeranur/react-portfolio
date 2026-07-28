@@ -56,14 +56,14 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import ResumePreview from "./components/Resume/ResumePreview";
 import MyResumeContextProvider from "./components/context/MyResumeContext";
-import Education from "./components/Education/Education";
+import About from "./components/About/About";
 import Experience from "./components/Experience/Experience";
 import Contact from "./components/Contact/Contact";
-import Skills from "./components/Skills/Skills";
+import TechStack from "./components/TechStack/TechStack";
 import FileUploader from "./components/FileUploader";
 import Youtube from "./components/Youtube/Youtube";
 import Projects from "./components/Projects/Projects";
-import LetsTalk from "./components/Contact/LetsTalk";
+import Testimonials from "./components/Testimonials/Testimonials";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Auth/Login";
 import Profile from "./components/Profile/Profile";
@@ -102,13 +102,13 @@ const AppContent = () => {
           element={
             <>
               <Home />
-              <Education />
-              <Experience />
-              <Skills />
-              <Contact />
-              <Youtube />
+              <About />
+              <TechStack />
               <Projects />
-              <LetsTalk />
+              <Experience />
+              <Youtube />
+              <Testimonials />
+              <Contact />
               <Footer />
             </>
           }

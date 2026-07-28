@@ -1,113 +1,70 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import CustomSwiper from "../CustomSwiper/CustomSwiper";
-import { SwiperSlide } from "swiper/react";
+import SectionHeader from "../common/SectionHeader";
+import useScrollAnimation from "../../hooks/useScrollAnimation";
+import youtubeBanner from "../../Images/Youtube/youtube-banner.png";
+
+const CHANNEL_URL = "https://www.youtube.com/@studentcodertech8500";
+
+const STATS = [
+  { value: "50+", label: "Videos" },
+  { value: "10K+", label: "Subscribers" },
+  { value: "1M+", label: "Views" },
+  { value: "4.8★", label: "Average Rating" },
+];
 
 const Youtube = () => {
+  const [ref, isVisible] = useScrollAnimation(0.15);
+
   return (
-    <>
-      <div id="youtube">
-        <div className="container youtube py-5 py-md-0">
-          <div className="heading-top">YouTube Channel</div>
-          <div className="row flex-wrap align-items-start gap-5">
-            <div className="col-md-5 col-12">
-              <CustomSwiper paginationId="swiper-pagination-1">
-                {[1, 2, 3, 4, 5].map((data, index) => (
-                  <SwiperSlide key={index} className="slide">
-                    <Link
-                      to="https://www.youtube.com/@studentcodertech8500"
-                      target="_blank"
-                      className="p-2 d-block bg-secondary"
-                      // style={{
-                      //   background: "#69696930",
-                      // }}
-                    >
-                      <img
-                        src={`https://res.cloudinary.com/duuesjzan/image/upload/v1741628927/portfolio/youtube/thumbnail${data}.jpg`}
-                        alt="image_thumbnail"
-                        className="w-100"
-                      />
-                    </Link>
-                  </SwiperSlide>
-                ))}
-              </CustomSwiper>
-            </div>
-            <div className="col-md col-12">
-              <div className="title mt-0">Student Coder Tech! 🎯</div>
-              <div>
-                Student Coder Tech is a Tamil programming YouTube channel
-                dedicated to making web development easy for beginners. Learn
-                HTML, CSS, and UI Development with step-by-step tutorials and
-                hands-on projects.
-              </div>
+    <div className="section-card" id="youtube" ref={ref}>
+      <div className="home-container">
+        <SectionHeader
+          number="05"
+          title="YouTube Channel"
+          viewAllText="View channel"
+          viewAllTo="youtube"
+        />
 
-              <div className="my-3">
-                <div>
-                  🔹 Master Frontend Technologies (HTML, CSS, JavaScript)
+        <div className={`youtube-panel ${isVisible ? "is-visible" : ""}`}>
+          <img
+            src={youtubeBanner}
+            alt="Student Coder Tech YouTube channel"
+            width={"100%"}
+            style={{ borderRadius: 16, overflow: "hidden" }}
+          />
+
+          <div className="youtube-info">
+            <div className="youtube-heading">Student Coder Tech! 🎯</div>
+            <p>
+              Student Coder Tech is a Tamil programming YouTube channel
+              dedicated to making web development easy for beginners. Learn
+              HTML, CSS, and UI Development with step-by-step tutorials and
+              hands-on projects.
+            </p>
+
+            <div className="youtube-stats">
+              {STATS.map((s) => (
+                <div className="youtube-stat" key={s.label}>
+                  <div className="youtube-stat-value">{s.value}</div>
+                  <div className="youtube-stat-label">{s.label}</div>
                 </div>
-                <div>🔹 Build Responsive UIs with Flexbox & Grid</div>
-                <div>🔹 Create Modern Web Designs with real-world examples</div>
-              </div>
-
-              <div>
-                🚀 Start your coding journey today! Subscribe now and level up
-                your skills.
-              </div>
-              <Link
-                to="https://www.youtube.com/@studentcodertech8500"
-                target="_blank"
-                className="text-decoration-none text-lavender mt-2 d-block "
-              >
-                🔗 Subscribe on YouTube
-              </Link>
+              ))}
             </div>
+
+            <a
+              href={CHANNEL_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="download-button-new"
+            >
+              Subscribe on YouTube
+              <i className="fa fa-youtube-play ms-2" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default Youtube;
-
-// import React from "react";
-// import ReactPlayer from "react-player";
-// import { Link } from "react-router-dom";
-
-// const Youtube = () => {
-//   return (
-//     <div className="container youtube" id="youtube">
-//       <div className="heading-top">YouTube Channel</div>
-
-//       <div className="d-flex flex-wrap gap-5">
-//         <div className="video-wrapper mb-4 mb-md-0">
-//           <ReactPlayer
-//             url="https://www.youtube.com/embed/U058fhO_rNY"
-//             width="100%"
-//             height="315px"
-//             controls={true}
-//           />
-//         </div>
-
-//         <div className="video-wrapper mb-4 mb-md-0">
-//           <ReactPlayer
-//             url="https://www.youtube.com/embed/vpT4COLg_AY"
-//             width="100%"
-//             height="315px"
-//             controls={true}
-//           />
-//         </div>
-//       </div>
-
-//       <Link
-//         to="https://www.youtube.com/@studentcodertech8500"
-//         target="_blank"
-//         className="my-5 btn btn-secondary"
-//       >
-//         More Videos to view My YouTube Channel
-//       </Link>
-//     </div>
-//   );
-// };
-
-// export default Youtube;

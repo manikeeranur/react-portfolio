@@ -46,12 +46,12 @@ const Navbar = () => {
           <ul className="navbar-nav me-auto ms-md-auto me-md-0 mt-2 mt-lg-0">
             {[
               { name: "Home", to: "home", offset: -80 },
-              { name: "Education", to: "education", offset: -80 },
-              { name: "Experience", to: "experience", offset: -50 },
-              { name: "Techs Used", to: "skills", offset: -50 },
-              { name: "Contact", to: "contact", offset: -80 },
-              { name: "YouTube", to: "youtube", offset: -80 },
+              { name: "About", to: "about", offset: -80 },
+              { name: "Skills", to: "techstack", offset: -80 },
               { name: "Projects", to: "projects", offset: -80 },
+              { name: "Experience", to: "experience", offset: -80 },
+              { name: "YouTube", to: "youtube", offset: -80 },
+              { name: "Contact", to: "contact", offset: -80 },
             ].map((item) => (
               <li className="nav-item" key={item.to}>
                 <Link
@@ -67,6 +67,14 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+          <button
+            type="button"
+            className="navbar-resume-btn"
+            onClick={() => window.open("/myresume", "_blank")}
+          >
+            <i className="fa fa-download me-2" aria-hidden="true" />
+            Download Resume
+          </button>
         </div>
       </div>
     </nav>

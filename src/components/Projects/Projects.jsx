@@ -1,40 +1,75 @@
-import { Link } from "react-router-dom";
-import CustomSwiper from "../CustomSwiper/CustomSwiper";
-import { SwiperSlide } from "swiper/react";
+import React, { useContext } from "react";
+import { MyResumeContext } from "../context/MyResumeContext";
+import SectionHeader from "../common/SectionHeader";
+import Carousel from "../common/Carousel";
+import useScrollAnimation from "../../hooks/useScrollAnimation";
+
+const CARD_GRADIENTS = [
+  "linear-gradient(135deg, #6d5cd8, #2dd4bf)",
+  "linear-gradient(135deg, #ec4899, #6d5cd8)",
+  "linear-gradient(135deg, #0f172a, #6d5cd8)",
+];
+
+const ProjectCard = ({ project, index }) => {
+  const tags = (project.technologies || "")
+    .split(",")
+    .map((t) => t.trim())
+    .filter(Boolean)
+    .slice(0, 3);
+
+  return (
+    <div className="project-card">
+      <div className="project-thumb" style={{ background: CARD_GRADIENTS[index % CARD_GRADIENTS.length] }}>
+        <span>{project.name[0]}</span>
+      </div>
+      <div className="project-body">
+        <div className="project-title">{project.name}</div>
+        <p className="project-desc">{project.description}</p>
+        {tags.length > 0 && (
+          <div className="project-tags">
+            {tags.map((tag) => (
+              <span className="project-tag" key={tag}>{tag}</span>
+            ))}
+          </div>
+        )}
+        {(project.liveUrl || project.githubUrl) && (
+          <div className="project-links">
+            {project.liveUrl && (
+              <a href={project.liveUrl} target="_blank" rel="noreferrer" className="project-link">
+                Live Demo <i className="fa fa-external-link" aria-hidden="true" />
+              </a>
+            )}
+            {project.githubUrl && (
+              <a href={project.githubUrl} target="_blank" rel="noreferrer" className="project-link">
+                GitHub <i className="fa fa-external-link" aria-hidden="true" />
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const Projects = () => {
+  const { profileData } = useContext(MyResumeContext);
+  const projects = profileData.projects || [];
+  const [ref, isVisible] = useScrollAnimation(0.1);
+
   return (
-    <>
-      <div id="projects">
-        <div className="container projects py-5 py-md-0">
-          <div className="heading-top">My Projects</div>
-          <div className="row flex-wrap align-items-start gap-5 gap-md-0 ">
-            <div className="col-md-6 p-md-4 col-12">
-              <div className="project-title">
-                Programming Blog for Beginners
-              </div>
-              <CustomSwiper paginationId="swiper-pagination-2">
-                {[1, 2, 3, 4].map((data, index) => (
-                  <SwiperSlide key={index} className="slide">
-                    <Link
-                      to="https://blog.manikandan.site/"
-                      target="_blank"
-                      className="p-2 d-block bg-secondary"
-                    >
-                      <img
-                        src={`https://res.cloudinary.com/duuesjzan/image/upload/v1741628712/portfolio/blog/blog_${data}.jpg`}
-                        alt="image_thumbnail"
-                        className="w-100"
-                      />
-                    </Link>
-                  </SwiperSlide>
-                ))}
-              </CustomSwiper>
-            </div>
-          </div>
+    <div className="section-card" id="projects" ref={ref}>
+      <div className="home-container">
+        <SectionHeader number="03" title="Featured Projects" viewAllText="View all projects" viewAllTo="projects" />
+        <div className={`skills-reveal ${isVisible ? "is-visible" : ""}`}>
+          <Carousel
+            items={projects}
+            perView={{ base: 1, md: 3 }}
+            gap={24}
+            renderItem={(project, i) => <ProjectCard project={project} index={i} />}
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

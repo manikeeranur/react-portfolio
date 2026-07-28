@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-scroll";
 import { MyResumeContext } from "../context/MyResumeContext";
+import StatsBar from "./StatsBar";
 
-const staticProfile = "/images/profile/manikandan_profile.jpeg";
+const heroVisual = "/images/profile/hero-visual1.png";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -14,37 +15,25 @@ const fadeUp = (delay = 0) => ({
 
 const Home = () => {
   const { profileData } = useContext(MyResumeContext);
-  const { personalInfo, profileImage } = profileData;
+  const { personalInfo } = profileData;
 
   const displayName  = personalInfo.name  || "Manikandan A";
   const displayTitle = personalInfo.title || "Frontend Developer";
-  const displayImg   = profileImage || staticProfile;
+  const displayBio    = personalInfo.bio  || "";
 
-  const handleViewResume = () => {
-    window.open("/myresume", "_blank");
-  };
+  const socialLinks = [
+    { icon: "fa-linkedin",  href: personalInfo.linkedin || "https://www.linkedin.com/in/manikandanarumugam001" },
+    { icon: "fa-github",    href: personalInfo.github    || "https://github.com/manikeeranur" },
+    { icon: "fa-envelope-o", href: `mailto:${personalInfo.email || "manikeeranur2105@gmail.com"}` },
+  ];
 
   return (
     <div id="home">
-      <div className="container">
-        <div className="home-page pt-md-5">
-
-          {/* Mobile profile */}
-          <motion.div
-            className="d-block d-md-none"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            <div className="profile-ring-wrapper profile-ring-sm">
-              <div className="profile-ring-inner">
-                <img src={displayImg} alt={displayName} className="home-profile-img" />
-              </div>
-            </div>
-          </motion.div>
+      <div className="home-container">
+        <div className="hero-grid">
 
           {/* Text */}
-          <div className="col-md">
+          <div>
             <motion.p className="home-greeting" {...fadeUp(0)}>
               Hi, I'm <span className="wave">👋</span>
             </motion.p>
@@ -70,43 +59,62 @@ const Home = () => {
               />
             </motion.div>
 
-            <motion.div {...fadeUp(0.54)} style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              <button className="download-button-new" onClick={handleViewResume}>
-                Get My Resume
-                <i className="fa fa-arrow-right" aria-hidden="true" />
-              </button>
+            <motion.p className="hero-subtitle" {...fadeUp(0.45)}>
+              {displayBio.split(". ")[0] ? `${displayBio.split(". ")[0]}.` : displayBio}
+            </motion.p>
+
+            <motion.div {...fadeUp(0.54)} className="hero-actions">
+              <Link to="projects" smooth duration={500} offset={-80}>
+                <button className="download-button-new">
+                  View My Work
+                  <i className="fa fa-arrow-right" aria-hidden="true" />
+                </button>
+              </Link>
               <Link to="contact" smooth duration={500} offset={-80}>
                 <button className="download-button-outline">
                   Get In Touch
-                  <i className="fa fa-envelope-o ms-2" aria-hidden="true" />
+                  <i className="fa fa-arrow-right ms-2" aria-hidden="true" />
                 </button>
               </Link>
             </motion.div>
+
+            <motion.div {...fadeUp(0.62)} className="hero-social">
+              <span className="hero-social-label">Connect with me</span>
+              <div className="hero-social-row">
+                {socialLinks.map((s) => (
+                  <a
+                    key={s.icon}
+                    href={s.href}
+                    target={s.href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel="noreferrer"
+                    className="hero-social-btn"
+                  >
+                    <i className={`fa ${s.icon}`} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            </motion.div>
           </div>
 
-          {/* Desktop profile with rotating ring */}
+          {/* Profile image */}
           <motion.div
-            className="d-none d-md-flex align-items-center justify-content-center"
+            className="hero-image-col"
             initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
           >
-            <motion.div
-              className="profile-ring-wrapper"
-              animate={{ y: [0, -18, 0] }}
+            <motion.img
+              src={heroVisual}
+              alt={displayName}
+              className="hero-visual-img"
+              animate={{ y: [0, -14, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <div className="profile-ring-inner">
-                <img
-                  src={displayImg}
-                  alt={displayName}
-                  className="home-profile-img-desktop"
-                />
-              </div>
-            </motion.div>
+            />
           </motion.div>
 
         </div>
+
+        <StatsBar />
       </div>
     </div>
   );

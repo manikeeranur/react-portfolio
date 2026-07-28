@@ -20,53 +20,54 @@ const genId = () => Math.random().toString(36).slice(2, 11);
 // ─── Shared sx helpers ────────────────────────────────────────────────────────
 
 const cardSx = {
-  background: 'rgba(30,41,59,0.80)',
+  background: 'rgba(255,255,255,0.92)',
   backdropFilter: 'blur(16px)',
-  border: '1px solid rgba(255,255,255,0.07)',
+  border: '1px solid rgba(30,27,46,0.07)',
   borderRadius: '16px',
+  boxShadow: '0 4px 24px rgba(30,27,46,0.06)',
 };
 
 const inputSx = {
   '& .MuiOutlinedInput-root': {
-    color: '#e2e8f0',
-    background: 'rgba(255,255,255,0.04)',
+    color: '#1e1b2e',
+    background: 'rgba(30,27,46,0.04)',
     borderRadius: '10px',
-    '& fieldset': { borderColor: 'rgba(255,255,255,0.1)' },
-    '&:hover fieldset': { borderColor: 'rgba(139,92,246,0.5)' },
-    '&.Mui-focused fieldset': { borderColor: '#8b5cf6', borderWidth: '2px' },
+    '& fieldset': { borderColor: 'rgba(30,27,46,0.1)' },
+    '&:hover fieldset': { borderColor: 'rgba(109,92,216,0.5)' },
+    '&.Mui-focused fieldset': { borderColor: '#6d5cd8', borderWidth: '2px' },
   },
-  '& .MuiInputLabel-root': { color: '#94a3b8' },
-  '& .MuiInputLabel-root.Mui-focused': { color: '#8b5cf6' },
-  '& .MuiInputBase-input::placeholder': { color: '#64748b' },
+  '& .MuiInputLabel-root': { color: '#64748b' },
+  '& .MuiInputLabel-root.Mui-focused': { color: '#6d5cd8' },
+  '& .MuiInputBase-input::placeholder': { color: '#94a3b8' },
 };
 
 const dialogPaperSx = {
-  background: '#1e293b',
-  border: '1px solid rgba(255,255,255,0.08)',
+  background: '#ffffff',
+  border: '1px solid rgba(30,27,46,0.08)',
   borderRadius: '16px',
-  color: '#e2e8f0',
+  color: '#1e1b2e',
 };
 
 const btnPrimary = {
-  background: 'linear-gradient(135deg,#8b5cf6,#7c3aed)',
+  background: 'linear-gradient(135deg,#6d5cd8,#5b4bc4)',
   color: '#fff',
   fontWeight: 700,
   textTransform: 'none',
   borderRadius: '8px',
-  '&:hover': { background: 'linear-gradient(135deg,#7c3aed,#6d28d9)', boxShadow: '0 6px 20px rgba(139,92,246,0.4)' },
+  '&:hover': { background: 'linear-gradient(135deg,#5b4bc4,#4c3fae)', boxShadow: '0 6px 20px rgba(109,92,216,0.4)' },
 };
 
 const btnOutline = {
-  border: '1px solid rgba(139,92,246,0.5)',
-  color: '#a78bfa',
+  border: '1px solid rgba(109,92,216,0.5)',
+  color: '#6d5cd8',
   textTransform: 'none',
   borderRadius: '8px',
-  '&:hover': { background: 'rgba(139,92,246,0.1)', borderColor: '#8b5cf6' },
+  '&:hover': { background: 'rgba(109,92,216,0.1)', borderColor: '#6d5cd8' },
 };
 
 const btnDanger = {
   border: '1px solid rgba(239,68,68,0.4)',
-  color: '#f87171',
+  color: '#ef4444',
   textTransform: 'none',
   borderRadius: '8px',
   '&:hover': { background: 'rgba(239,68,68,0.1)', borderColor: '#ef4444' },
@@ -364,12 +365,13 @@ const Profile = () => {
   // ═══════════════════════════════════════════════════════════════════════════
 
   return (
-    <Box sx={{ minHeight: '100vh', background: '#0f172a', color: '#e2e8f0', pb: 6 }}>
+    <Box sx={{ minHeight: '100vh', background: '#f3f1fd', color: '#1e1b2e', pb: 6 }}>
       {/* ── Top bar ── */}
       <Box sx={{
-        background: 'rgba(15,23,42,0.95)',
-        borderBottom: '1px solid rgba(255,255,255,0.07)',
+        background: 'rgba(255,255,255,0.96)',
+        borderBottom: '1px solid rgba(30,27,46,0.07)',
         backdropFilter: 'blur(16px)',
+        boxShadow: '0 4px 30px rgba(30,27,46,0.08)',
         position: 'sticky', top: 0, zIndex: 100,
         px: { xs: 2, md: 4 }, py: 1.5,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -377,10 +379,10 @@ const Profile = () => {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
           <Box sx={{
             width: 36, height: 36, borderRadius: '50%',
-            background: 'linear-gradient(135deg,#8b5cf6,#2dd4bf)',
+            background: 'linear-gradient(135deg,#6d5cd8,#2dd4bf)',
             display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18,
           }}>👤</Box>
-          <Typography sx={{ fontWeight: 700, fontSize: 16, color: '#e2e8f0' }}>
+          <Typography sx={{ fontWeight: 700, fontSize: 16, color: '#1e1b2e' }}>
             Profile Manager
           </Typography>
         </Box>
@@ -396,7 +398,7 @@ const Profile = () => {
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         {/* ── Profile header card ── */}
         <Paper sx={{ ...cardSx, overflow: 'hidden', mb: 3 }}>
-          <Box sx={{ height: 4, background: 'linear-gradient(90deg,#8b5cf6,#2dd4bf,#f43f5e)' }} />
+          <Box sx={{ height: 4, background: 'linear-gradient(90deg,#6d5cd8,#2dd4bf,#ec4899)' }} />
           <Box sx={{ p: 3, display: 'flex', flexWrap: 'wrap', gap: 3, alignItems: 'center' }}>
           {/* Avatar with upload */}
           <Box sx={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
@@ -405,8 +407,8 @@ const Profile = () => {
                 src={profile.profileImage || undefined}
                 sx={{
                   width: 110, height: 110,
-                  background: 'linear-gradient(135deg,#8b5cf6,#2dd4bf)',
-                  fontSize: 42, border: '3px solid rgba(139,92,246,0.4)',
+                  background: 'linear-gradient(135deg,#6d5cd8,#2dd4bf)',
+                  fontSize: 42, border: '3px solid rgba(109,92,216,0.4)',
                   cursor: 'pointer',
                 }}
                 onClick={() => imageInputRef.current?.click()}
@@ -419,8 +421,8 @@ const Profile = () => {
                   onClick={() => imageInputRef.current?.click()}
                   sx={{
                     position: 'absolute', bottom: 2, right: 2,
-                    background: '#8b5cf6', color: '#fff', width: 28, height: 28,
-                    '&:hover': { background: '#7c3aed' },
+                    background: '#6d5cd8', color: '#fff', width: 28, height: 28,
+                    '&:hover': { background: '#5b4bc4' },
                   }}
                 >
                   <PhotoCamera sx={{ fontSize: 14 }} />
@@ -434,7 +436,7 @@ const Profile = () => {
               <Button
                 size="small"
                 onClick={() => { setImgUrlDraft(profile.profileImage?.startsWith('data:') ? '' : (profile.profileImage || '')); setShowImgUrl(true); }}
-                sx={{ color: '#64748b', fontSize: 11, textTransform: 'none', p: 0, minWidth: 0 }}
+                sx={{ color: '#94a3b8', fontSize: 11, textTransform: 'none', p: 0, minWidth: 0 }}
               >
                 Use public folder path
               </Button>
@@ -455,12 +457,12 @@ const Profile = () => {
                     }
                     setShowImgUrl(false);
                   }}
-                  sx={{ color: '#a78bfa', background: 'rgba(139,92,246,0.15)', '&:hover': { background: 'rgba(139,92,246,0.25)' } }}
+                  sx={{ color: '#6d5cd8', background: 'rgba(109,92,216,0.15)', '&:hover': { background: 'rgba(109,92,216,0.25)' } }}
                 >
                   <Save sx={{ fontSize: 16 }} />
                 </IconButton>
                 <IconButton size="small" onClick={() => setShowImgUrl(false)}
-                  sx={{ color: '#f87171', background: 'rgba(239,68,68,0.1)' }}>
+                  sx={{ color: '#ef4444', background: 'rgba(239,68,68,0.1)' }}>
                   <Cancel sx={{ fontSize: 16 }} />
                 </IconButton>
               </Box>
@@ -491,29 +493,29 @@ const Profile = () => {
 
           {/* Name & title */}
           <Box sx={{ flex: 1 }}>
-            <Typography variant="h5" sx={{ fontWeight: 700, color: '#e2e8f0', mb: 0.25 }}>
+            <Typography variant="h5" sx={{ fontWeight: 700, color: '#1e1b2e', mb: 0.25 }}>
               {profile.personalInfo.name || 'Your Name'}
             </Typography>
-            <Typography sx={{ color: '#a78bfa', fontSize: 15, mb: 0.5 }}>
+            <Typography sx={{ color: '#6d5cd8', fontSize: 15, mb: 0.5 }}>
               {profile.personalInfo.title || 'Your Title'}
             </Typography>
-            <Typography sx={{ color: '#94a3b8', fontSize: 13 }}>
+            <Typography sx={{ color: '#64748b', fontSize: 13 }}>
               {profile.personalInfo.location || 'Location'}
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1.5 }}>
               {[
-                { label: 'Skills',     count: profile.skills?.length    || 0, color: '#8b5cf6' },
+                { label: 'Skills',     count: profile.skills?.length    || 0, color: '#6d5cd8' },
                 { label: 'Experience', count: profile.experience?.length || 0, color: '#2dd4bf' },
                 { label: 'Education',  count: profile.education?.length  || 0, color: '#f59e0b' },
-                { label: 'Projects',   count: profile.projects?.length   || 0, color: '#f43f5e' },
+                { label: 'Projects',   count: profile.projects?.length   || 0, color: '#ec4899' },
               ].map(({ label, count, color }) => (
                 <Box key={label} sx={{
                   display: 'flex', alignItems: 'center', gap: 0.75,
-                  background: 'rgba(255,255,255,0.05)', borderRadius: 2,
+                  background: 'rgba(30,27,46,0.05)', borderRadius: 2,
                   px: 1.5, py: 0.5, border: `1px solid ${color}33`,
                 }}>
                   <Typography sx={{ color, fontSize: 15, fontWeight: 700 }}>{count}</Typography>
-                  <Typography sx={{ color: '#64748b', fontSize: 12 }}>{label}</Typography>
+                  <Typography sx={{ color: '#94a3b8', fontSize: 12 }}>{label}</Typography>
                 </Box>
               ))}
             </Box>
@@ -544,10 +546,10 @@ const Profile = () => {
             variant="scrollable"
             scrollButtons="auto"
             sx={{
-              borderBottom: '1px solid rgba(255,255,255,0.07)',
-              '& .MuiTab-root': { color: '#94a3b8', textTransform: 'none', fontSize: 14, fontWeight: 500, minWidth: 'auto', px: 2 },
-              '& .Mui-selected': { color: '#a78bfa !important' },
-              '& .MuiTabs-indicator': { background: 'linear-gradient(90deg,#8b5cf6,#2dd4bf)', height: 3 },
+              borderBottom: '1px solid rgba(30,27,46,0.07)',
+              '& .MuiTab-root': { color: '#64748b', textTransform: 'none', fontSize: 14, fontWeight: 500, minWidth: 'auto', px: 2 },
+              '& .Mui-selected': { color: '#6d5cd8 !important' },
+              '& .MuiTabs-indicator': { background: 'linear-gradient(90deg,#6d5cd8,#2dd4bf)', height: 3 },
             }}
           >
             <Tab icon={<Person sx={{ fontSize: 18 }} />} iconPosition="start" label="Personal" />
@@ -563,7 +565,7 @@ const Profile = () => {
             {/* ═══ TAB 0 — Personal Info ═══ */}
             <TabPanel value={activeTab} index={0}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2.5 }}>
-                <Typography sx={{ fontWeight: 700, fontSize: 16, color: '#e2e8f0' }}>Personal Information</Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: 16, color: '#1e1b2e' }}>Personal Information</Typography>
                 {!editPersonal
                   ? <Button startIcon={<Edit />} onClick={() => { setPersonalDraft(profile.personalInfo); setEditPersonal(true); }} sx={btnOutline}>Edit</Button>
                   : <Box sx={{ display: 'flex', gap: 1 }}>
@@ -616,16 +618,16 @@ const Profile = () => {
                   ].map(({ label, val }) => (
                     <Grid item xs={12} sm={6} key={label}>
                       <Box>
-                        <Typography sx={{ color: '#64748b', fontSize: 11, textTransform: 'uppercase', letterSpacing: 1, mb: 0.25 }}>{label}</Typography>
-                        <Typography sx={{ color: val ? '#e2e8f0' : '#475569', fontSize: 14 }}>{val || '—'}</Typography>
+                        <Typography sx={{ color: '#94a3b8', fontSize: 11, textTransform: 'uppercase', letterSpacing: 1, mb: 0.25 }}>{label}</Typography>
+                        <Typography sx={{ color: val ? '#1e1b2e' : '#94a3b8', fontSize: 14 }}>{val || '—'}</Typography>
                       </Box>
                     </Grid>
                   ))}
                   {profile.personalInfo.bio && (
                     <Grid item xs={12}>
                       <Box>
-                        <Typography sx={{ color: '#64748b', fontSize: 11, textTransform: 'uppercase', letterSpacing: 1, mb: 0.25 }}>Bio</Typography>
-                        <Typography sx={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.7 }}>{profile.personalInfo.bio}</Typography>
+                        <Typography sx={{ color: '#94a3b8', fontSize: 11, textTransform: 'uppercase', letterSpacing: 1, mb: 0.25 }}>Bio</Typography>
+                        <Typography sx={{ color: '#1e1b2e', fontSize: 14, lineHeight: 1.7 }}>{profile.personalInfo.bio}</Typography>
                       </Box>
                     </Grid>
                   )}
@@ -637,8 +639,8 @@ const Profile = () => {
             <TabPanel value={activeTab} index={1}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2.5 }}>
                 <Box>
-                  <Typography sx={{ fontWeight: 700, fontSize: 16, color: '#e2e8f0' }}>Skills</Typography>
-                  <Typography sx={{ color: '#64748b', fontSize: 12, mt: 0.25 }}>
+                  <Typography sx={{ fontWeight: 700, fontSize: 16, color: '#1e1b2e' }}>Skills</Typography>
+                  <Typography sx={{ color: '#94a3b8', fontSize: 12, mt: 0.25 }}>
                     {profile.skills.length} skill{profile.skills.length !== 1 ? 's' : ''} — grouped by category in the resume
                   </Typography>
                 </Box>
@@ -652,7 +654,7 @@ const Profile = () => {
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
                     {profile.skills.map(sk => (
                       <Chip key={sk.id} label={sk.name} onClick={() => openEditSkill(sk)} onDelete={() => deleteSkill(sk.id)}
-                        sx={{ background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.35)', color: '#c4b5fd', fontSize: 14, cursor: 'pointer', '& .MuiChip-deleteIcon': { color: '#7c3aed', '&:hover': { color: '#ef4444' } }, '&:hover': { background: 'rgba(139,92,246,0.25)' } }}
+                        sx={{ background: 'rgba(109,92,216,0.15)', border: '1px solid rgba(109,92,216,0.35)', color: '#5b4bc4', fontSize: 14, cursor: 'pointer', '& .MuiChip-deleteIcon': { color: '#5b4bc4', '&:hover': { color: '#ef4444' } }, '&:hover': { background: 'rgba(109,92,216,0.25)' } }}
                       />
                     ))}
                   </Box>
@@ -666,18 +668,18 @@ const Profile = () => {
                 return Object.entries(groups).map(([cat, items]) => (
                   <Box key={cat} sx={{ mb: 3 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
-                      <Typography sx={{ color: '#64748b', fontSize: 11, textTransform: 'uppercase', letterSpacing: 1.5, whiteSpace: 'nowrap' }}>
+                      <Typography sx={{ color: '#94a3b8', fontSize: 11, textTransform: 'uppercase', letterSpacing: 1.5, whiteSpace: 'nowrap' }}>
                         {cat}
                       </Typography>
                       <Chip label={items.length} size="small"
-                        sx={{ background: 'rgba(139,92,246,0.2)', color: '#a78bfa', fontSize: 11, height: 18, '& .MuiChip-label': { px: 1 } }}
+                        sx={{ background: 'rgba(109,92,216,0.2)', color: '#6d5cd8', fontSize: 11, height: 18, '& .MuiChip-label': { px: 1 } }}
                       />
-                      <Box sx={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
+                      <Box sx={{ flex: 1, height: '1px', background: 'rgba(30,27,46,0.06)' }} />
                     </Box>
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
                       {items.map(sk => (
                         <Chip key={sk.id} label={sk.name} onClick={() => openEditSkill(sk)} onDelete={() => deleteSkill(sk.id)}
-                          sx={{ background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.35)', color: '#c4b5fd', fontSize: 14, cursor: 'pointer', '& .MuiChip-deleteIcon': { color: '#7c3aed', '&:hover': { color: '#ef4444' } }, '&:hover': { background: 'rgba(139,92,246,0.25)' } }}
+                          sx={{ background: 'rgba(109,92,216,0.15)', border: '1px solid rgba(109,92,216,0.35)', color: '#5b4bc4', fontSize: 14, cursor: 'pointer', '& .MuiChip-deleteIcon': { color: '#5b4bc4', '&:hover': { color: '#ef4444' } }, '&:hover': { background: 'rgba(109,92,216,0.25)' } }}
                         />
                       ))}
                     </Box>
@@ -695,33 +697,33 @@ const Profile = () => {
               {profile.experience.length === 0 ? <EmptyState label="No experience added yet" /> : (
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                   {profile.experience.map(ex => (
-                    <Paper key={ex.id} sx={{ ...cardSx, p: 2.5, borderLeft: '3px solid #8b5cf6' }}>
+                    <Paper key={ex.id} sx={{ ...cardSx, p: 2.5, borderLeft: '3px solid #6d5cd8' }}>
                       <Box sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 1 }}>
                         <Box sx={{ flex: 1 }}>
-                          <Typography sx={{ fontWeight: 700, color: '#a78bfa', fontSize: 15 }}>{ex.position}</Typography>
-                          <Typography sx={{ color: '#e2e8f0', fontSize: 14, fontWeight: 600 }}>{ex.company}</Typography>
-                          <Typography sx={{ color: '#64748b', fontSize: 12, mt: 0.5 }}>
+                          <Typography sx={{ fontWeight: 700, color: '#6d5cd8', fontSize: 15 }}>{ex.position}</Typography>
+                          <Typography sx={{ color: '#1e1b2e', fontSize: 14, fontWeight: 600 }}>{ex.company}</Typography>
+                          <Typography sx={{ color: '#94a3b8', fontSize: 12, mt: 0.5 }}>
                             {ex.startDate} — {ex.current ? 'Present' : ex.endDate}
                           </Typography>
                           {ex.technology && (
                             <Box sx={{ mt: 1 }}>
-                              <Typography component="span" sx={{ color: '#64748b', fontSize: 12, fontWeight: 600 }}>Technology: </Typography>
-                              <Typography component="span" sx={{ color: '#94a3b8', fontSize: 12 }}>{ex.technology}</Typography>
+                              <Typography component="span" sx={{ color: '#94a3b8', fontSize: 12, fontWeight: 600 }}>Technology: </Typography>
+                              <Typography component="span" sx={{ color: '#64748b', fontSize: 12 }}>{ex.technology}</Typography>
                             </Box>
                           )}
                           {ex.project && (
                             <Box sx={{ mt: 0.5 }}>
-                              <Typography component="span" sx={{ color: '#64748b', fontSize: 12, fontWeight: 600 }}>Project: </Typography>
+                              <Typography component="span" sx={{ color: '#94a3b8', fontSize: 12, fontWeight: 600 }}>Project: </Typography>
                               <Typography component="span" sx={{ color: '#2dd4bf', fontSize: 12 }}>{ex.project}</Typography>
                             </Box>
                           )}
                           {ex.description && (
-                            <Typography sx={{ color: '#94a3b8', fontSize: 13, mt: 1, lineHeight: 1.6 }}>{ex.description}</Typography>
+                            <Typography sx={{ color: '#64748b', fontSize: 13, mt: 1, lineHeight: 1.6 }}>{ex.description}</Typography>
                           )}
                         </Box>
                         <Box sx={{ display: 'flex', gap: 1, alignItems: 'flex-start' }}>
-                          <IconButton size="small" onClick={() => openEditExp(ex)} sx={{ color: '#a78bfa', '&:hover': { background: 'rgba(139,92,246,0.15)' } }}><Edit fontSize="small" /></IconButton>
-                          <IconButton size="small" onClick={() => deleteExp(ex.id)} sx={{ color: '#f87171', '&:hover': { background: 'rgba(239,68,68,0.1)' } }}><Delete fontSize="small" /></IconButton>
+                          <IconButton size="small" onClick={() => openEditExp(ex)} sx={{ color: '#6d5cd8', '&:hover': { background: 'rgba(109,92,216,0.15)' } }}><Edit fontSize="small" /></IconButton>
+                          <IconButton size="small" onClick={() => deleteExp(ex.id)} sx={{ color: '#ef4444', '&:hover': { background: 'rgba(239,68,68,0.1)' } }}><Delete fontSize="small" /></IconButton>
                         </Box>
                       </Box>
                     </Paper>
@@ -742,16 +744,16 @@ const Profile = () => {
                     <Paper key={ed.id} sx={{ ...cardSx, p: 2.5 }}>
                       <Box sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 1 }}>
                         <Box>
-                          <Typography sx={{ fontWeight: 700, color: '#a78bfa', fontSize: 15 }}>{ed.degree} {ed.field && `— ${ed.field}`}</Typography>
-                          <Typography sx={{ color: '#e2e8f0', fontSize: 14, fontWeight: 600 }}>{ed.institution}</Typography>
-                          <Typography sx={{ color: '#64748b', fontSize: 12, mt: 0.5 }}>
+                          <Typography sx={{ fontWeight: 700, color: '#6d5cd8', fontSize: 15 }}>{ed.degree} {ed.field && `— ${ed.field}`}</Typography>
+                          <Typography sx={{ color: '#1e1b2e', fontSize: 14, fontWeight: 600 }}>{ed.institution}</Typography>
+                          <Typography sx={{ color: '#94a3b8', fontSize: 12, mt: 0.5 }}>
                             {ed.startDate} — {ed.endDate}
                             {ed.grade && <Box component="span" sx={{ ml: 1.5, color: '#2dd4bf' }}>Grade: {ed.grade}</Box>}
                           </Typography>
                         </Box>
                         <Box sx={{ display: 'flex', gap: 1, alignItems: 'flex-start' }}>
-                          <IconButton size="small" onClick={() => openEditEdu(ed)} sx={{ color: '#a78bfa', '&:hover': { background: 'rgba(139,92,246,0.15)' } }}><Edit fontSize="small" /></IconButton>
-                          <IconButton size="small" onClick={() => deleteEdu(ed.id)} sx={{ color: '#f87171', '&:hover': { background: 'rgba(239,68,68,0.1)' } }}><Delete fontSize="small" /></IconButton>
+                          <IconButton size="small" onClick={() => openEditEdu(ed)} sx={{ color: '#6d5cd8', '&:hover': { background: 'rgba(109,92,216,0.15)' } }}><Edit fontSize="small" /></IconButton>
+                          <IconButton size="small" onClick={() => deleteEdu(ed.id)} sx={{ color: '#ef4444', '&:hover': { background: 'rgba(239,68,68,0.1)' } }}><Delete fontSize="small" /></IconButton>
                         </Box>
                       </Box>
                     </Paper>
@@ -777,9 +779,9 @@ const Profile = () => {
                           />
                         )}
                         <Box sx={{ p: 2 }}>
-                          <Typography sx={{ fontWeight: 700, color: '#a78bfa', mb: 0.5 }}>{p.name}</Typography>
+                          <Typography sx={{ fontWeight: 700, color: '#6d5cd8', mb: 0.5 }}>{p.name}</Typography>
                           {p.description && (
-                            <Typography sx={{ color: '#94a3b8', fontSize: 13, mb: 1, lineHeight: 1.5 }}>{p.description}</Typography>
+                            <Typography sx={{ color: '#64748b', fontSize: 13, mb: 1, lineHeight: 1.5 }}>{p.description}</Typography>
                           )}
                           {p.technologies && (
                             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mb: 1 }}>
@@ -793,11 +795,11 @@ const Profile = () => {
                           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <Box sx={{ display: 'flex', gap: 1 }}>
                               {p.liveUrl && <Tooltip title="Live demo"><IconButton size="small" href={p.liveUrl} target="_blank" sx={{ color: '#2dd4bf' }}><LinkIcon fontSize="small" /></IconButton></Tooltip>}
-                              {p.githubUrl && <Tooltip title="GitHub"><IconButton size="small" href={p.githubUrl} target="_blank" sx={{ color: '#94a3b8' }}><GitHub fontSize="small" /></IconButton></Tooltip>}
+                              {p.githubUrl && <Tooltip title="GitHub"><IconButton size="small" href={p.githubUrl} target="_blank" sx={{ color: '#64748b' }}><GitHub fontSize="small" /></IconButton></Tooltip>}
                             </Box>
                             <Box sx={{ display: 'flex', gap: 0.5 }}>
-                              <IconButton size="small" onClick={() => openEditProj(p)} sx={{ color: '#a78bfa', '&:hover': { background: 'rgba(139,92,246,0.15)' } }}><Edit fontSize="small" /></IconButton>
-                              <IconButton size="small" onClick={() => deleteProj(p.id)} sx={{ color: '#f87171', '&:hover': { background: 'rgba(239,68,68,0.1)' } }}><Delete fontSize="small" /></IconButton>
+                              <IconButton size="small" onClick={() => openEditProj(p)} sx={{ color: '#6d5cd8', '&:hover': { background: 'rgba(109,92,216,0.15)' } }}><Edit fontSize="small" /></IconButton>
+                              <IconButton size="small" onClick={() => deleteProj(p.id)} sx={{ color: '#ef4444', '&:hover': { background: 'rgba(239,68,68,0.1)' } }}><Delete fontSize="small" /></IconButton>
                             </Box>
                           </Box>
                         </Box>
@@ -813,7 +815,7 @@ const Profile = () => {
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2.5 }}>
                 <Box>
                   <Typography sx={{ fontWeight: 700, fontSize: 16 }}>Techs Used</Typography>
-                  <Typography sx={{ color: '#64748b', fontSize: 12, mt: 0.25 }}>
+                  <Typography sx={{ color: '#94a3b8', fontSize: 12, mt: 0.25 }}>
                     Shown on the website's "Techs Used" section — separate from resume skills
                   </Typography>
                 </Box>
@@ -832,7 +834,7 @@ const Profile = () => {
                 }, {});
                 return Object.entries(groups).map(([cat, items]) => (
                   <Box key={cat} sx={{ mb: 3 }}>
-                    <Typography sx={{ color: '#64748b', fontSize: 11, textTransform: 'uppercase', letterSpacing: 1.5, mb: 1.5 }}>
+                    <Typography sx={{ color: '#94a3b8', fontSize: 11, textTransform: 'uppercase', letterSpacing: 1.5, mb: 1.5 }}>
                       {cat}
                     </Typography>
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
@@ -840,21 +842,21 @@ const Profile = () => {
                         <Paper key={t.id} sx={{
                           ...cardSx, px: 2, py: 1.25,
                           display: 'flex', alignItems: 'center', gap: 1.5,
-                          borderLeft: '2px solid #8b5cf6',
+                          borderLeft: '2px solid #6d5cd8',
                         }}>
                           {t.image
                             ? <Box component="img" src={t.image} alt={t.name} sx={{ width: 28, height: 28, objectFit: 'contain', borderRadius: 1 }} />
                             : <Box sx={{
                                 width: 28, height: 28, borderRadius: 1,
-                                background: 'linear-gradient(135deg,#8b5cf6,#2dd4bf)',
+                                background: 'linear-gradient(135deg,#6d5cd8,#2dd4bf)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 color: '#fff', fontWeight: 800, fontSize: 13,
                               }}>{t.name[0]?.toUpperCase()}</Box>
                           }
-                          <Typography sx={{ color: '#e2e8f0', fontSize: 13, fontWeight: 500 }}>{t.name}</Typography>
+                          <Typography sx={{ color: '#1e1b2e', fontSize: 13, fontWeight: 500 }}>{t.name}</Typography>
                           <Box sx={{ display: 'flex', gap: 0.5, ml: 0.5 }}>
-                            <IconButton size="small" onClick={() => openEditTech(t)} sx={{ color: '#a78bfa', p: 0.25, '&:hover': { background: 'rgba(139,92,246,0.15)' } }}><Edit sx={{ fontSize: 14 }} /></IconButton>
-                            <IconButton size="small" onClick={() => deleteTech(t.id)} sx={{ color: '#f87171', p: 0.25, '&:hover': { background: 'rgba(239,68,68,0.1)' } }}><Delete sx={{ fontSize: 14 }} /></IconButton>
+                            <IconButton size="small" onClick={() => openEditTech(t)} sx={{ color: '#6d5cd8', p: 0.25, '&:hover': { background: 'rgba(109,92,216,0.15)' } }}><Edit sx={{ fontSize: 14 }} /></IconButton>
+                            <IconButton size="small" onClick={() => deleteTech(t.id)} sx={{ color: '#ef4444', p: 0.25, '&:hover': { background: 'rgba(239,68,68,0.1)' } }}><Delete sx={{ fontSize: 14 }} /></IconButton>
                           </Box>
                         </Paper>
                       ))}
@@ -872,7 +874,7 @@ const Profile = () => {
                   <Paper sx={{ ...cardSx, p: 2.5, textAlign: 'center' }}>
                     <Box sx={{ fontSize: 36, mb: 1 }}>🔒</Box>
                     <Typography sx={{ fontWeight: 600, mb: 0.5 }}>Change Password</Typography>
-                    <Typography sx={{ color: '#94a3b8', fontSize: 13, mb: 2 }}>Update your login password</Typography>
+                    <Typography sx={{ color: '#64748b', fontSize: 13, mb: 2 }}>Update your login password</Typography>
                     <Button onClick={() => setPwDlg(p => ({ ...p, open: true }))} sx={btnOutline} fullWidth>Change Password</Button>
                   </Paper>
                 </Grid>
@@ -880,7 +882,7 @@ const Profile = () => {
                   <Paper sx={{ ...cardSx, p: 2.5, textAlign: 'center' }}>
                     <Box sx={{ fontSize: 36, mb: 1 }}>📥</Box>
                     <Typography sx={{ fontWeight: 600, mb: 0.5 }}>Export Profile</Typography>
-                    <Typography sx={{ color: '#94a3b8', fontSize: 13, mb: 2 }}>Download your profile as JSON</Typography>
+                    <Typography sx={{ color: '#64748b', fontSize: 13, mb: 2 }}>Download your profile as JSON</Typography>
                     <Button startIcon={<FileDownload />} onClick={exportJSON} sx={btnOutline} fullWidth>Export JSON</Button>
                   </Paper>
                 </Grid>
@@ -888,7 +890,7 @@ const Profile = () => {
                   <Paper sx={{ ...cardSx, p: 2.5, textAlign: 'center' }}>
                     <Box sx={{ fontSize: 36, mb: 1 }}>📤</Box>
                     <Typography sx={{ fontWeight: 600, mb: 0.5 }}>Import Profile</Typography>
-                    <Typography sx={{ color: '#94a3b8', fontSize: 13, mb: 2 }}>Restore from a JSON backup</Typography>
+                    <Typography sx={{ color: '#64748b', fontSize: 13, mb: 2 }}>Restore from a JSON backup</Typography>
                     <Button startIcon={<FileUpload />} onClick={() => importRef.current?.click()} sx={btnOutline} fullWidth>Import JSON</Button>
                   </Paper>
                 </Grid>
@@ -896,7 +898,7 @@ const Profile = () => {
                   <Paper sx={{ ...cardSx, p: 2.5, textAlign: 'center' }}>
                     <Box sx={{ fontSize: 36, mb: 1 }}>🔄</Box>
                     <Typography sx={{ fontWeight: 600, mb: 0.5 }}>Reset to Default</Typography>
-                    <Typography sx={{ color: '#94a3b8', fontSize: 13, mb: 2 }}>Reload all original portfolio data</Typography>
+                    <Typography sx={{ color: '#64748b', fontSize: 13, mb: 2 }}>Reload all original portfolio data</Typography>
                     <Button
                       sx={{ ...btnDanger, width: '100%' }}
                       onClick={() => {
@@ -919,7 +921,7 @@ const Profile = () => {
                         <Typography sx={{ fontWeight: 700, mb: 0.5, color: '#2dd4bf' }}>
                           MongoDB Atlas — Live Backend
                         </Typography>
-                        <Typography sx={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
+                        <Typography sx={{ color: '#64748b', fontSize: 13, lineHeight: 1.7 }}>
                           All profile changes are saved directly to MongoDB Atlas in real time.
                           Every visitor sees the latest data instantly — no file uploads or deployments needed.
                         </Typography>
@@ -939,7 +941,7 @@ const Profile = () => {
 
       {/* ── Tech dialog ── */}
       <Dialog open={techDlg.open} onClose={() => setTechDlg({ open: false, data: null })} PaperProps={{ sx: dialogPaperSx }} maxWidth="xs" fullWidth>
-        <DialogTitle sx={{ borderBottom: '1px solid rgba(255,255,255,0.07)', pb: 1.5 }}>
+        <DialogTitle sx={{ borderBottom: '1px solid rgba(30,27,46,0.07)', pb: 1.5 }}>
           {techDlg.data?.name ? 'Edit Tech' : 'Add Tech'}
         </DialogTitle>
         <DialogContent sx={{ pt: '16px !important' }}>
@@ -957,8 +959,8 @@ const Profile = () => {
               />
 
               {/* Icon — upload OR public folder path */}
-              <Box sx={{ border: '1px solid rgba(255,255,255,0.08)', borderRadius: 2, p: 2 }}>
-                <Typography sx={{ color: '#94a3b8', fontSize: 12, mb: 1.5, fontWeight: 600 }}>
+              <Box sx={{ border: '1px solid rgba(30,27,46,0.08)', borderRadius: 2, p: 2 }}>
+                <Typography sx={{ color: '#64748b', fontSize: 12, mb: 1.5, fontWeight: 600 }}>
                   Icon (optional — auto-matched by name if empty)
                 </Typography>
 
@@ -966,7 +968,7 @@ const Profile = () => {
                 {techDlg.data.image && (
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
                     <Box component="img" src={techDlg.data.image} alt="preview"
-                      sx={{ width: 44, height: 44, objectFit: 'contain', borderRadius: 1, border: '1px solid rgba(255,255,255,0.12)', p: 0.5, background: 'rgba(255,255,255,0.04)' }}
+                      sx={{ width: 44, height: 44, objectFit: 'contain', borderRadius: 1, border: '1px solid rgba(30,27,46,0.12)', p: 0.5, background: 'rgba(30,27,46,0.04)' }}
                       onError={e => { e.target.style.display = 'none'; }}
                     />
                     <Box sx={{ flex: 1 }}>
@@ -993,7 +995,7 @@ const Profile = () => {
                         </Typography>
                       )}
                       <Button size="small" onClick={() => setTechDlg(p => ({ ...p, data: { ...p.data, image: null } }))}
-                        sx={{ color: '#f87171', fontSize: 11, p: 0, minWidth: 0, textTransform: 'none', mt: 0.25, display: 'block' }}>
+                        sx={{ color: '#ef4444', fontSize: 11, p: 0, minWidth: 0, textTransform: 'none', mt: 0.25, display: 'block' }}>
                         Remove
                       </Button>
                     </Box>
@@ -1008,14 +1010,14 @@ const Profile = () => {
                       Upload Image
                     </Button>
                   </label>
-                  <Typography sx={{ color: '#475569', fontSize: 11 }}>Max 1 MB · stored as base64</Typography>
+                  <Typography sx={{ color: '#94a3b8', fontSize: 11 }}>Max 1 MB · stored as base64</Typography>
                 </Box>
 
                 {/* Divider */}
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
-                  <Box sx={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.07)' }} />
-                  <Typography sx={{ color: '#475569', fontSize: 11 }}>or use public folder path</Typography>
-                  <Box sx={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.07)' }} />
+                  <Box sx={{ flex: 1, height: '1px', background: 'rgba(30,27,46,0.07)' }} />
+                  <Typography sx={{ color: '#94a3b8', fontSize: 11 }}>or use public folder path</Typography>
+                  <Box sx={{ flex: 1, height: '1px', background: 'rgba(30,27,46,0.07)' }} />
                 </Box>
 
                 {/* Option B: Path to file in public/images/ */}
@@ -1027,8 +1029,8 @@ const Profile = () => {
                   onChange={e => setTechDlg(p => ({ ...p, data: { ...p.data, image: e.target.value || null } }))}
                   sx={inputSx} size="small"
                   helperText={
-                    <span style={{ color: '#475569', fontSize: 11 }}>
-                      FTP your image to <span style={{ color: '#a78bfa' }}>public/images/techs/</span> then type the path here
+                    <span style={{ color: '#94a3b8', fontSize: 11 }}>
+                      FTP your image to <span style={{ color: '#6d5cd8' }}>public/images/techs/</span> then type the path here
                     </span>
                   }
                 />
@@ -1044,7 +1046,7 @@ const Profile = () => {
 
       {/* ── Skill dialog ── */}
       <Dialog open={skillDlg.open} onClose={() => setSkillDlg(p => ({ ...p, open: false }))} PaperProps={{ sx: dialogPaperSx }} maxWidth="xs" fullWidth>
-        <DialogTitle sx={{ borderBottom: '1px solid rgba(255,255,255,0.07)', pb: 1.5 }}>
+        <DialogTitle sx={{ borderBottom: '1px solid rgba(30,27,46,0.07)', pb: 1.5 }}>
           {skillDlg.editId ? 'Edit Skill' : 'Add Skill'}
         </DialogTitle>
         <DialogContent sx={{ pt: '16px !important', display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -1058,7 +1060,7 @@ const Profile = () => {
             fullWidth label="Category (for resume grouping)" value={skillDlg.category}
             onChange={e => setSkillDlg(p => ({ ...p, category: e.target.value }))}
             sx={inputSx} placeholder="e.g. Language, Frameworks & Libraries"
-            helperText={<span style={{ color: '#64748b', fontSize: 11 }}>Groups skills together in the resume's Technical Skills section</span>}
+            helperText={<span style={{ color: '#94a3b8', fontSize: 11 }}>Groups skills together in the resume's Technical Skills section</span>}
           />
         </DialogContent>
         <DialogActions sx={{ px: 3, pb: 2, gap: 1 }}>
@@ -1069,7 +1071,7 @@ const Profile = () => {
 
       {/* ── Experience dialog ── */}
       <Dialog open={expDlg.open} onClose={() => setExpDlg({ open: false, data: null })} PaperProps={{ sx: dialogPaperSx }} maxWidth="sm" fullWidth>
-        <DialogTitle sx={{ borderBottom: '1px solid rgba(255,255,255,0.07)', pb: 1.5 }}>
+        <DialogTitle sx={{ borderBottom: '1px solid rgba(30,27,46,0.07)', pb: 1.5 }}>
           {expDlg.data?.company ? 'Edit Experience' : 'Add Experience'}
         </DialogTitle>
         <DialogContent sx={{ pt: '16px !important' }}>
@@ -1110,10 +1112,10 @@ const Profile = () => {
                     <Checkbox
                       checked={expDlg.data.current || false}
                       onChange={e => setExpDlg(p => ({ ...p, data: { ...p.data, current: e.target.checked, endDate: e.target.checked ? '' : p.data.endDate } }))}
-                      sx={{ color: '#8b5cf6', '&.Mui-checked': { color: '#8b5cf6' } }}
+                      sx={{ color: '#6d5cd8', '&.Mui-checked': { color: '#6d5cd8' } }}
                     />
                   }
-                  label={<Typography sx={{ color: '#94a3b8', fontSize: 14 }}>Currently working here</Typography>}
+                  label={<Typography sx={{ color: '#64748b', fontSize: 14 }}>Currently working here</Typography>}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -1150,7 +1152,7 @@ const Profile = () => {
 
       {/* ── Education dialog ── */}
       <Dialog open={eduDlg.open} onClose={() => setEduDlg({ open: false, data: null })} PaperProps={{ sx: dialogPaperSx }} maxWidth="sm" fullWidth>
-        <DialogTitle sx={{ borderBottom: '1px solid rgba(255,255,255,0.07)', pb: 1.5 }}>
+        <DialogTitle sx={{ borderBottom: '1px solid rgba(30,27,46,0.07)', pb: 1.5 }}>
           {eduDlg.data?.institution ? 'Edit Education' : 'Add Education'}
         </DialogTitle>
         <DialogContent sx={{ pt: '16px !important' }}>
@@ -1183,7 +1185,7 @@ const Profile = () => {
 
       {/* ── Project dialog ── */}
       <Dialog open={projDlg.open} onClose={() => setProjDlg({ open: false, data: null })} PaperProps={{ sx: dialogPaperSx }} maxWidth="sm" fullWidth>
-        <DialogTitle sx={{ borderBottom: '1px solid rgba(255,255,255,0.07)', pb: 1.5 }}>
+        <DialogTitle sx={{ borderBottom: '1px solid rgba(30,27,46,0.07)', pb: 1.5 }}>
           {projDlg.data?.name ? 'Edit Project' : 'Add Project'}
         </DialogTitle>
         <DialogContent sx={{ pt: '16px !important' }}>
@@ -1229,12 +1231,12 @@ const Profile = () => {
               </Grid>
               {/* Project image — upload or public folder path */}
               <Grid item xs={12}>
-                <Box sx={{ border: '1px solid rgba(255,255,255,0.08)', borderRadius: 2, p: 2 }}>
-                  <Typography sx={{ color: '#94a3b8', fontSize: 12, mb: 1.5, fontWeight: 600 }}>Project Image</Typography>
+                <Box sx={{ border: '1px solid rgba(30,27,46,0.08)', borderRadius: 2, p: 2 }}>
+                  <Typography sx={{ color: '#64748b', fontSize: 12, mb: 1.5, fontWeight: 600 }}>Project Image</Typography>
                   {projDlg.data.image && (
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
                       <Box component="img" src={projDlg.data.image} alt="preview"
-                        sx={{ height: 72, borderRadius: 1.5, border: '1px solid rgba(255,255,255,0.1)', display: 'block', objectFit: 'cover' }}
+                        sx={{ height: 72, borderRadius: 1.5, border: '1px solid rgba(30,27,46,0.1)', display: 'block', objectFit: 'cover' }}
                         onError={e => { e.target.style.display = 'none'; }}
                       />
                       <Box sx={{ flex: 1 }}>
@@ -1261,7 +1263,7 @@ const Profile = () => {
                           </Typography>
                         )}
                         <Button size="small" onClick={() => setProjDlg(p => ({ ...p, data: { ...p.data, image: null } }))}
-                          sx={{ color: '#f87171', fontSize: 11, p: 0, minWidth: 0, textTransform: 'none', mt: 0.25, display: 'block' }}>
+                          sx={{ color: '#ef4444', fontSize: 11, p: 0, minWidth: 0, textTransform: 'none', mt: 0.25, display: 'block' }}>
                           Remove
                         </Button>
                       </Box>
@@ -1274,12 +1276,12 @@ const Profile = () => {
                         Upload Image
                       </Button>
                     </label>
-                    <Typography sx={{ color: '#475569', fontSize: 11 }}>Max 3 MB · stored as base64</Typography>
+                    <Typography sx={{ color: '#94a3b8', fontSize: 11 }}>Max 3 MB · stored as base64</Typography>
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
-                    <Box sx={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.07)' }} />
-                    <Typography sx={{ color: '#475569', fontSize: 11 }}>or use public folder path</Typography>
-                    <Box sx={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.07)' }} />
+                    <Box sx={{ flex: 1, height: '1px', background: 'rgba(30,27,46,0.07)' }} />
+                    <Typography sx={{ color: '#94a3b8', fontSize: 11 }}>or use public folder path</Typography>
+                    <Box sx={{ flex: 1, height: '1px', background: 'rgba(30,27,46,0.07)' }} />
                   </Box>
                   <TextField
                     fullWidth
@@ -1289,8 +1291,8 @@ const Profile = () => {
                     onChange={e => setProjDlg(p => ({ ...p, data: { ...p.data, image: e.target.value || null } }))}
                     sx={inputSx} size="small"
                     helperText={
-                      <span style={{ color: '#475569', fontSize: 11 }}>
-                        FTP your image to <span style={{ color: '#a78bfa' }}>public/images/projects/</span> then type the path here
+                      <span style={{ color: '#94a3b8', fontSize: 11 }}>
+                        FTP your image to <span style={{ color: '#6d5cd8' }}>public/images/projects/</span> then type the path here
                       </span>
                     }
                   />
@@ -1307,10 +1309,10 @@ const Profile = () => {
 
       {/* ── Change password dialog ── */}
       <Dialog open={pwDlg.open} onClose={() => setPwDlg(p => ({ ...p, open: false, err: '' }))} PaperProps={{ sx: dialogPaperSx }} maxWidth="xs" fullWidth>
-        <DialogTitle sx={{ borderBottom: '1px solid rgba(255,255,255,0.07)', pb: 1.5 }}>Change Password</DialogTitle>
+        <DialogTitle sx={{ borderBottom: '1px solid rgba(30,27,46,0.07)', pb: 1.5 }}>Change Password</DialogTitle>
         <DialogContent sx={{ pt: '16px !important' }}>
           {pwDlg.err && (
-            <Alert severity="error" sx={{ mb: 2, background: 'rgba(239,68,68,0.1)', color: '#fca5a5', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '8px', '& .MuiAlert-icon': { color: '#f87171' } }}>
+            <Alert severity="error" sx={{ mb: 2, background: 'rgba(239,68,68,0.1)', color: '#dc2626', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '8px', '& .MuiAlert-icon': { color: '#ef4444' } }}>
               {pwDlg.err}
             </Alert>
           )}
@@ -1329,7 +1331,7 @@ const Profile = () => {
                 InputProps={{
                   endAdornment: key === 'current' ? (
                     <InputAdornment position="end">
-                      <IconButton onClick={() => setPwDlg(p => ({ ...p, show: !p.show }))} sx={{ color: '#94a3b8' }} edge="end">
+                      <IconButton onClick={() => setPwDlg(p => ({ ...p, show: !p.show }))} sx={{ color: '#64748b' }} edge="end">
                         {pwDlg.show ? <VisibilityOff fontSize="small" /> : <Visibility fontSize="small" />}
                       </IconButton>
                     </InputAdornment>
@@ -1367,7 +1369,7 @@ const Profile = () => {
 // ─── Empty state helper ───────────────────────────────────────────────────────
 
 const EmptyState = ({ label }) => (
-  <Box sx={{ textAlign: 'center', py: 5, color: '#475569' }}>
+  <Box sx={{ textAlign: 'center', py: 5, color: '#94a3b8' }}>
     <Typography sx={{ fontSize: 40, mb: 1 }}>📭</Typography>
     <Typography sx={{ fontSize: 14 }}>{label}</Typography>
   </Box>

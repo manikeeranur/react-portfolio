@@ -63,7 +63,6 @@ import TechStack from "./components/TechStack/TechStack";
 import FileUploader from "./components/FileUploader";
 import Youtube from "./components/Youtube/Youtube";
 import Projects from "./components/Projects/Projects";
-import Testimonials from "./components/Testimonials/Testimonials";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Auth/Login";
 import Profile from "./components/Profile/Profile";
@@ -107,7 +106,6 @@ const AppContent = () => {
               <Projects />
               <Experience />
               <Youtube />
-              <Testimonials />
               <Contact />
               <Footer />
             </>

@@ -5,7 +5,7 @@ import useScrollAnimation from "../../hooks/useScrollAnimation";
 const STATS = [
   { icon: "fa-code",         value: "10+", label: "Projects Completed" },
   { icon: "fa-smile-o",      value: "5+",  label: "Happy Clients" },
-  { icon: "fa-clock-o",      value: "2+",  label: "Years of Experience" },
+  { icon: "fa-clock-o",      value: "5+",  label: "Years of Experience" },
   { icon: "fa-thumbs-o-up",  value: "99%", label: "Client Satisfaction" },
 ];
 

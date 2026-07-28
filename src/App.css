@@ -424,6 +424,7 @@ body {
   color: #fff;
   padding: 0.65rem 1.4rem;
   border-radius: 8px;
+  border: 1.5px solid transparent;
   font-size: 14px;
   cursor: pointer;
   transition: var(--transition);
@@ -432,6 +433,36 @@ body {
   background: var(--accent-hover);
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(109, 92, 216, 0.3);
+}
+
+/* Shared "hero" CTA button — used where we want a bolder, more attractive
+   treatment than the standard accent button (e.g. Send Message, Subscribe). */
+.btn-cta,
+.btn-cta:visited {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(109, 92, 216, 0.25);
+  transition: var(--transition);
+}
+.btn-cta:hover,
+.btn-cta:focus,
+.btn-cta:active {
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(109, 92, 216, 0.4);
+}
+.btn-cta:active {
+  transform: translateY(-1px);
 }
 
 .download-button-outline {
@@ -1066,9 +1097,9 @@ body {
   background: var(--accent);
   color: #fff;
   font-weight: 700;
-  padding: 12px 28px;
+  padding: 10px 22px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
   transition: var(--transition);
 }

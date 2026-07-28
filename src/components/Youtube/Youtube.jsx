@@ -80,10 +80,10 @@ const Youtube = () => {
               href={CHANNEL_URL}
               target="_blank"
               rel="noreferrer"
-              className="download-button-new"
+              className="btn-cta"
             >
               Subscribe on YouTube
-              <i className="fa fa-youtube-play ms-2" aria-hidden="true" />
+              <i className="fa fa-youtube-play" aria-hidden="true" />
             </a>
           </div>
         </div>
